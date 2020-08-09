@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">the hike</string>
+    <string formatted="true" translatable="true" name="app_name">the hike</string>
     <string name="usernameHint">Enter your User Name</string>
     <string name="userEmail">Enter your Email address</string>
     <string name="signuBtn">Sign up</string>
@@ -12,4 +12,6 @@
     <string name="myRoutesSub">These are the routes created by yourself prevoulsly</string>
     <string name="content_description_media">myRoutsImgDes</string>
     <string name="go_to_my_routes">Go to my Routes</string>
+    <string name="create_new">Create new</string>
+    <string name="explore">Explore Routes</string>
 </resources>

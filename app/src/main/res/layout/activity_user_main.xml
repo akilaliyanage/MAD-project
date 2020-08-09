@@ -9,100 +9,245 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Light"
         android:layout_marginLeft="30px"
-        android:layout_marginRight="30px"
         android:layout_marginTop="30px"
-        android:elevation="@dimen/cardview_default_elevation"
+        android:layout_marginRight="30px"
         android:backgroundTint="@android:color/white"
-        >
+        android:elevation="@dimen/cardview_default_elevation"
+        android:theme="@style/ThemeOverlay.AppCompat.Light">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolabr"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fadingEdgeLength="@dimen/cardview_default_elevation"
-            />
+            android:fadingEdgeLength="@dimen/cardview_default_elevation" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="474dp">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card"
-            android:layout_width="347dp"
-            android:layout_height="301dp"
-            android:layout_margin="8dp"
-            android:elevation="2dp"
-            app:cardBackgroundColor="@color/cardBack"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints">
+        <LinearLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/myRoutes"
                 android:layout_width="match_parent"
-                android:layout_height="301dp"
-                android:orientation="vertical">
-
-                <!-- Media -->
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:contentDescription="content_description_media"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/myroutes" />
+                android:layout_height="288dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:elevation="@dimen/cardview_default_elevation">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="301dp"
+                    android:orientation="vertical">
+
+                    <!-- Media -->
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:contentDescription="content_description_media"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/myroutes" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- Title, secondary and supporting text -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/myRoutes"
+                            android:textAppearance="?attr/textAppearanceHeadline6"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/myRoutesSub"
+                            android:textAppearance="?attr/textAppearanceBody2"
+                            android:textColor="?android:attr/textColorSecondary" />
+
+
+                    </LinearLayout>
+
+                    <!-- Buttons -->
+                    <Button
+                        android:id="@+id/containedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="57dp"
+                        android:layout_marginBottom="0dp"
+                        android:text="@string/go_to_my_routes" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:orientation="horizontal">
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/newRoute"
+                android:layout_width="match_parent"
+                android:layout_height="288dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:elevation="@dimen/cardview_default_elevation">
+
+                <LinearLayout
+                    android:layout_width="382dp"
+                    android:layout_height="285dp"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="390dp">
 
-                    <!-- Title, secondary and supporting text -->
-                    <TextView
+                    <!-- Media -->
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:contentDescription="content_description_media"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/createnew" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- Title, secondary and supporting text -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/myRoutes"
+                            android:textAppearance="?attr/textAppearanceHeadline6"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/myRoutesSub"
+                            android:textAppearance="?attr/textAppearanceBody2"
+                            android:textColor="?android:attr/textColorSecondary" />
+
+
+                    </LinearLayout>
+
+                    <!-- Buttons -->
+                    <Button
+                        android:id="@+id/createNewBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="57dp"
+                        android:layout_marginBottom="0dp"
+                        android:text="@string/create_new" />
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/myRoutes"
-                        android:textAppearance="?attr/textAppearanceHeadline6"
-                        tools:ignore="HardcodedText" />
+                        android:layout_margin="8dp"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/myRoutesSub"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary" />
 
+                    </LinearLayout>
 
                 </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-                <!-- Buttons -->
-                <Button
-                    android:id="@+id/containedButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="57dp"
-                    android:layout_marginBottom="0dp"
-                    android:text="@string/go_to_my_routes" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/exploreCard"
+                android:layout_width="match_parent"
+                android:layout_height="288dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:elevation="@dimen/cardview_default_elevation">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:orientation="horizontal">
+                    android:layout_width="382dp"
+                    android:layout_height="285dp"
+                    android:orientation="vertical"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="390dp">
 
+                    <!-- Media -->
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:contentDescription="content_description_media"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/explore" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- Title, secondary and supporting text -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/explore"
+                            android:textAppearance="?attr/textAppearanceHeadline6"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/myRoutesSub"
+                            android:textAppearance="?attr/textAppearanceBody2"
+                            android:textColor="?android:attr/textColorSecondary" />
+
+
+                    </LinearLayout>
+
+                    <!-- Buttons -->
+                    <Button
+                        android:id="@+id/explore"
+                        android:layout_width="match_parent"
+                        android:layout_height="57dp"
+                        android:layout_marginBottom="0dp"
+                        android:text="@string/create_new" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:orientation="horizontal">
+
+
+                    </LinearLayout>
 
                 </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
