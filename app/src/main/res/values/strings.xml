@@ -1,0 +1,76 @@
+<resources>
+    <string name="app_name">MiniProjectUI</string>
+    <string name="firstTopic">Categories of Restaurants</string>
+    <string name="CategoryTopic1">Cake and Pastry Shops</string>
+    <string name="CategoryTopic2">Beverages</string>
+    <string name="CategoryTopic3">Coffee and Juices</string>
+    <string name="CategoryTopic4">Western Cuisine</string>
+    <string name="fab_content_desc">+</string>
+    <string name="paragraph">Lorem ipsum dolor sit amet, consec</string>
+
+    <string name="firstpage">Add My Restaurant</string>
+    <string name="page_title">Cafe &amp; Restaurant</string>
+    <string name="first_title">Add Restaurant</string>
+    <string name="fillForm">*Fill the form</string>
+    <string name="Name">NAME</string>
+    <string name="Address">ADDRESS</string>
+    <string name="Category">CATEGORY</string>
+    <string name="Contact">CONTACT</string>
+    <string name="Email">EMAIL </string>
+    <string name="save">SAVE</string>
+    <string name="Continue">CONTINUE</string>
+    <string name="hintName">Restaurant Name</string>
+    <string name="hintAddress1">Line1</string>
+    <string name="hintAddress2">Line2</string>
+    <string name="hintAddressCity">City</string>
+    <string name="hintCategory">CATEGORY</string>
+    <string name="hintContact">Contact Number</string>
+    <string name="hintEmail">Email address</string>
+    <string-array name="categories">
+        <item>Cake and Pastry</item>
+        <item>Beverages</item>
+        <item>Coffee and Juices</item>
+        <item>Western Cuisine</item>
+    </string-array>
+
+    <string name="second_title">Add Menu</string>
+    <string name="price">PRICE</string>
+    <string name="discount">DISCOUNT</string>
+    <string name="amount">AMOUNT</string>
+    <string name="menu_name">Menu name</string>
+    <string name="hintPrice">Rupees</string>
+    <string name="hintDiscount">eg:5 (percentage)</string>
+    <string name="hintAmount">Amount to be paid</string>
+    <string name="calButton">Calculate</string>
+    <string name="add">Add to Menu</string>
+    <string name="update">UPDATE</string>
+    <string name="home">HOME</string>
+    <string name="myRest">My Restaurants</string>
+
+    <string name="menu_list">Menu List</string>
+    <string name="menu_name1">Orange juice</string>
+    <string name="menu_price1">250</string>
+    <string name="menu_disc1">0</string>
+    <string name="menu_amount1">250</string>
+    <string name="menu_name2">Faluda</string>
+    <string name="menu_price2">300</string>
+    <string name="menu_disc2">10</string>
+    <string name="menu_amount2">270</string>
+    <string name="hintRestaurantName">Restaurant Name</string>
+
+    <string name="forth_title">My Restaurants</string>
+    <string name="viewMenubtn">View Menu</string>
+    <string name="Res1Name">Asian Restaurant</string>
+    <string name="Res2Name">Western Cuisine</string>
+    <string name="place1">Highlevel Rd,Nugegoda</string>
+    <string name="place2">Kohuwala,Nugegoda</string>
+    <string name="addRestaurant">Add Restaurant</string>
+
+    <string name="home_title">THE HIKE</string>
+    <string name="home_welcome">WELCOME!</string>
+    <string name="home_sentence">Select Your Preference...</string>
+    <string name="home_user">USER</string>
+    <string name="home_hotel">HOTEL</string>
+    <string name="home_cafe">CAFE</string>
+    <string name="home_shops">SHOPS</string>
+</resources>
