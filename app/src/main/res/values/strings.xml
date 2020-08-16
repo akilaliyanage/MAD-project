@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Add_hotel</string>
+    <string name="hotel_sub">Submit</string>
+    <string name="hotel_submit">Save</string>
+    <string name="hotel_name">Hotel Name</string>
+    <string name="loca">Hotel Location</string>
+    <string name="deete">DELETE</string>
+    <string name="cancel">cancel</string>
+    <string name="edit">Edit Details</string>
+    <string name="del">DELETE HOTEL</string>
+    <string name="Ratingd">RATINGS</string>
+
+
+</resources>
