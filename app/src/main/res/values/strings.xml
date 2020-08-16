@@ -1,5 +1,5 @@
 <resources>
-    <string formatted="true" translatable="true" name="app_name">the hike</string>
+    <string name="app_name" formatted="true" translatable="true">the hike</string>
     <string name="usernameHint">Enter your User Name</string>
     <string name="userEmail">Enter your Email address</string>
     <string name="signuBtn">Sign up</string>
@@ -14,4 +14,39 @@
     <string name="go_to_my_routes">Go to my Routes</string>
     <string name="create_new">Create new</string>
     <string name="explore">Explore Routes</string>
+    <string name="have_you_ever_gone_to_some_places_you_know_tell_us_all_all_about_em">Have you ever gone to some places you know. Tell us all all about em\'</string>
+    <string name="createNewRoute">Create new Route</string>
+    <string name="exploreRoutes">Explore</string>
+    <string name="use_our_pre_created_routes">Use our pre created Routes</string>
+    <string name="google_map_api_key">AIzaSyCFex148NJ2tbLolEZMfRnVvDAQmZZiUro</string>
+    <string name="save">Save</string>
+    <string name="distance_from_colombo">Distance from Colombo</string>
+    <string name="time_taken_to_travel_from_colombo">Time taken to travel from colombo?</string>
+    <string name="by_bus">By bus</string>
+    <string name="by_train">By Train</string>
+    <string name="by_flight">By Flight</string>
+    <string name="on_foot">On Foot</string>
+    <string name="travelling_methods_you_know">Travelling Methods You Know...</string>
+    <string name="location_one">Location one</string>
+    <string name="go_to_next_destination">Go to next destination</string>
+    <string name="location_two">Location Two</string>
+    <string name="distance_from_location_one_to_location_two">Distance from Location one to Location two</string>
+    <string name="time_take_to_travel_from_location_one_to_location_two">Time take to travel from location one to location two</string>
+    <string name="save_and_exit">Save and Exit</string>
+    <string name="add_tags_to_make_this_route_searchable">Add tags to make this route searchable</string>
+    <string name="add_location_tags">Add Location Tags</string>
+    <string name="addTag">+</string>
+    <string name="my_first_route">My First Route</string>
+    <string name="my_route_one">My Route One</string>
+    <string name="starting_location">Starting Location : Colombo</string>
+    <string name="destination">Destination : Colombo</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="location_1">Location 1</string>
+    <string name="location_2">Location 2</string>
+    <string name="location_3">Location 3</string>
+    <string name="location_4">Location 4</string>
+    <string name="location_5">Location 5</string>
+    <string name="edit_the_location">Edit the Location</string>
+    <string name="update_info">Update Info</string>
 </resources>

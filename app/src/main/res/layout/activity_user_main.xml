@@ -9,9 +9,9 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30px"
+        android:layout_marginLeft="50px"
         android:layout_marginTop="30px"
-        android:layout_marginRight="30px"
+        android:layout_marginRight="50px"
         android:backgroundTint="@android:color/white"
         android:elevation="@dimen/cardview_default_elevation"
         android:theme="@style/ThemeOverlay.AppCompat.Light">
@@ -86,11 +86,12 @@
 
                     <!-- Buttons -->
                     <Button
-                        android:id="@+id/containedButton"
+                        android:id="@+id/myRoutesbtn"
                         android:layout_width="match_parent"
                         android:layout_height="57dp"
                         android:layout_marginBottom="0dp"
-                        android:text="@string/go_to_my_routes" />
+                        android:text="@string/go_to_my_routes"
+                        tools:ignore="DuplicateIds" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -107,7 +108,7 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/newRoute"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="288dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
@@ -140,7 +141,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/myRoutes"
+                            android:text="@string/createNewRoute"
                             android:textAppearance="?attr/textAppearanceHeadline6"
                             tools:ignore="HardcodedText" />
 
@@ -148,7 +149,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="@string/myRoutesSub"
+                            android:text="Know places to hike? Tell us them"
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
 
@@ -160,7 +161,7 @@
                         android:id="@+id/createNewBtn"
                         android:layout_width="match_parent"
                         android:layout_height="57dp"
-                        android:layout_marginBottom="0dp"
+                        android:layout_marginBottom="50dp"
                         android:text="@string/create_new" />
 
                     <LinearLayout
@@ -219,7 +220,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="@string/myRoutesSub"
+                            android:text="@string/use_our_pre_created_routes"
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
 
@@ -232,7 +233,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="57dp"
                         android:layout_marginBottom="0dp"
-                        android:text="@string/create_new" />
+                        android:text="@string/exploreRoutes" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"

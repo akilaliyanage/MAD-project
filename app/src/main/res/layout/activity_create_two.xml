@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".createTwo">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:backgroundTint="@android:color/white"
+        android:elevation="@dimen/cardview_default_elevation"
+        android:theme="@style/ThemeOverlay.AppCompat.Light">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolabr"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadingEdgeLength="@dimen/cardview_default_elevation" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/locationOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:elevation="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp">
+
+            <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                tools:context=".MapsActivity" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.AppCompat.Headline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="150dp"
+                android:text="@string/location_one"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textFontWeight="@android:integer/status_bar_notification_info_maxnum" />
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:id="@+id/createTwoSnackbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="185dp"
+                tools:ignore="ExtraText"></androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="250dp"
+                android:layout_marginBottom="10dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/distance"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:hint="@string/distance_from_colombo">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/time"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/distance"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:hint="@string/time_taken_to_travel_from_colombo">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/time"
+                    android:id="@+id/methods"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="@string/travelling_methods_you_know"/>
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/methods"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp">
+
+                    <!-- Chips can be declared here, or added dynamically. -->
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/bus"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:checked="true"
+                        android:text="@string/by_bus"/>
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/train"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:checked="false"
+                        android:text="@string/by_train"/>
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/flight"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:checked="true"
+                        android:text="@string/by_flight"/>
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/foot"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:checked="true"
+                        android:text="@string/on_foot"/>
+
+                </com.google.android.material.chip.ChipGroup>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/comments"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:layout_below="@+id/chipGroup"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:hint="Any Additional Comments on this location?">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:id="@+id/dest1"
+                    android:layout_marginTop="7dp"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/comments"
+                    android:text="@string/go_to_next_destination"/>
+            </RelativeLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </ScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

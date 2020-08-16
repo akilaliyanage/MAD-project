@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".createOne">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:backgroundTint="@android:color/white"
+        android:elevation="@dimen/cardview_default_elevation"
+        android:theme="@style/ThemeOverlay.AppCompat.Light">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolabr"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadingEdgeLength="@dimen/cardview_default_elevation" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="ExtraText"
+        android:layout_marginTop="70dp"
+        >
+
+
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="78dp"
+            android:elevation="10dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Title, secondary and supporting text -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Create New Route"
+                        android:textColor="@color/colorPrimary"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        />
+
+                </LinearLayout>
+
+                <androidx.coordinatorlayout.widget.CoordinatorLayout
+                    android:id="@+id/cordnatorLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:id="@+id/searchMap"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_search_black_24dp"/>
+
+                    <AutoCompleteTextView
+                        android:layout_width="240dp"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/searchMap"
+                        android:layout_centerVertical="true"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorPrimary"
+                        android:id="@+id/mapSearchTxt"
+                        android:imeOptions="actionSearch"
+                        android:background="@null"
+                        android:hint="Enter any location"/>
+
+                    <Button
+                        android:id="@+id/containedButton"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="89dp"
+                        android:layout_height="35dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="248dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_toEndOf="@+id/searchMap"
+                        android:layout_toRightOf="@+id/mapSearchTxt"
+                        android:text="Search" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/map"
+            tools:context=".MapsActivity"
+            android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="-26dp"
+            android:id="@+id/createTwoBtn"
+            android:layout_marginBottom="0dp"
+            android:text="@string/save"
+            tools:ignore="MissingConstraints" />
+
+
+    </RelativeLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
