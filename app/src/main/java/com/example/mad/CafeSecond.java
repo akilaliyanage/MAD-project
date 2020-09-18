@@ -24,8 +24,8 @@ public class CafeSecond extends AppCompatActivity {
         addToMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              //  Intent intent2= new Intent(CafeSecond.this,ThirdActivity.class);
-              //  startActivity(intent2);
+                Intent intent2= new Intent(CafeSecond.this,Cafe_MenuList.class);
+                startActivity(intent2);
             }
         });
 
@@ -40,8 +40,8 @@ public class CafeSecond extends AppCompatActivity {
         myRestaurant24.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              //  Intent intent4= new Intent(CafeSecond.this,FourthActivity.class);
-              //  startActivity(intent4);
+                Intent intent4= new Intent(CafeSecond.this,Cafe_MyRestaurant.class);
+                startActivity(intent4);
             }
         });
 
