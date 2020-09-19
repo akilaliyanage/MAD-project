@@ -14,7 +14,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditPage"></activity>
+        <activity android:name=".Cafe_MyRestaurant"></activity>
+        <activity android:name=".Cafe_MenuList" />
+        <activity android:name=".CafeSecond" />
+        <activity android:name=".CafeFirst" />
+        <activity android:name=".CafeMain" />
+        <activity android:name=".Home">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".EditPage" />
         <activity android:name=".userDahsboard" />
         <activity android:name=".createThree" />
         <activity android:name=".createTwo" />
@@ -28,13 +40,7 @@
 
         <activity android:name=".createOne" />
         <activity android:name=".userMain" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
