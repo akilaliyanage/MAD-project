@@ -17,7 +17,8 @@
         <menu>
                 android:title="@string/menuItem1" />
 
-            <item android:title="@string/menuItsm2" />
+            <item android:title="@string/menuItsm2"
+                android:id="@+id/signOut"/>
             <item
 
                 android:title="@string/menuItsm3" />

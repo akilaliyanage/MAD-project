@@ -124,5 +124,11 @@
     <string name="home_hotel">HOTEL</string>
     <string name="home_cafe">CAFE</string>
     <string name="home_shops">SHOPS</string>
+    <string name="sign_in">Sign In</string>
+    <string name="enter_your_email_address_or_userame">Enter your email address or userame</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="enter_your_user_name">Enter your user name</string>
+    <string name="enter_your_email_address">Enter your email address</string>
+    <string name="sign_up">Sign Up</string>
 
 </resources>

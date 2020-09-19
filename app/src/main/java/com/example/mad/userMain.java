@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -14,6 +15,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class userMain extends AppCompatActivity {
 
@@ -22,6 +25,7 @@ public class userMain extends AppCompatActivity {
     private static final String TAG = "createOne";
     private static final int ERROR_DIALOG_REQUEST = 9001;
     private Button myRts;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,7 @@ public class userMain extends AppCompatActivity {
 
         createBtn = findViewById(R.id.createNewBtn);
         myRts = findViewById(R.id.myRoutesbtn);
+        mAuth = FirebaseAuth.getInstance();
 
         createBtn.setOnClickListener(new View.OnClickListener() {
 
@@ -64,7 +69,21 @@ public class userMain extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main,menu);
         return true;
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.signOut:
+                signOut();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
+    private void signOut() {
+       mAuth.signOut();
+    }
 
 
     public boolean isServicesOK(){

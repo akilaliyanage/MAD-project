@@ -12,19 +12,28 @@ import com.google.android.material.snackbar.Snackbar;
 public class MainActivity extends AppCompatActivity {
 
     //private Button snackbar_button;
-    private  Button signupBtn;
+    private  Button signInBtn,signUpBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        signupBtn = findViewById(R.id.signUpBtn);
+        signInBtn = findViewById(R.id.signinBtn);
+        signUpBtn = findViewById(R.id.signUpBtn);
 
-        signupBtn.setOnClickListener(new View.OnClickListener() {
+        signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openUserMain();
+            }
+        });
+
+        signUpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,sign_up.class);
+                startActivity(intent);
             }
         });
     }

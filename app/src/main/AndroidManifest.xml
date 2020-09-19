@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Cafe_MyRestaurant"></activity>
+        <activity android:name=".sign_up"></activity>
+        <activity android:name=".Cafe_MyRestaurant" />
         <activity android:name=".Cafe_MenuList" />
         <activity android:name=".CafeSecond" />
         <activity android:name=".CafeFirst" />

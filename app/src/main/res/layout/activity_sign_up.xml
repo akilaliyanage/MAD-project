@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".sign_up">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageView2"
         android:layout_width="478dp"
         android:layout_height="504dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,26 +18,52 @@
         app:layout_constraintVertical_bias="0.05"
         app:srcCompat="@drawable/logo" />
 
+
     <com.google.android.material.textfield.TextInputLayout
+
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="362dp"
         android:layout_height="64dp"
-        android:layout_marginTop="8dp"
-        android:hint="@string/enter_your_email_address_or_userame"
+        android:hint="@string/enter_your_email_address"
         app:boxBackgroundMode="outline"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.526">
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.49"
+        android:nextFocusDown="@id/newUserUsername">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:id="@+id/newUserEmail"
+            android:layout_height="wrap_content"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="362dp"
+        android:layout_height="64dp"
+        android:hint="@string/enter_your_user_name"
+        app:boxBackgroundMode="outline"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.595">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/newUserUsername"
+            android:layout_height="wrap_content" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="362dp"
         android:layout_height="64dp"
@@ -48,59 +74,64 @@
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.641">
+        app:layout_constraintVertical_bias="0.691">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
+            android:id="@+id/newUserPassword"
+            android:inputType="textPassword"
             android:layout_height="wrap_content" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/signinBtn"
-        android:layout_width="340dp"
-        android:layout_height="63dp"
-        android:text="@string/sign_in"
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:id="@+id/textInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="362dp"
+        android:layout_height="64dp"
+        android:hint="Confirm Password"
+        app:boxBackgroundMode="outline"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.735" />
+        app:layout_constraintVertical_bias="0.787">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/newUserConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/outlinedButton"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="165dp"
-        android:layout_height="60dp"
-        android:text="Google"
-        app:icon="@drawable/googleg_standard_color_18"
-        app:iconPadding="@android:dimen/app_icon_size"
-        app:iconTint="@color/cardBack"
-        app:iconTintMode="multiply"
+        android:id="@+id/createAcc"
+        android:layout_width="295dp"
+        android:layout_height="57dp"
+        android:text="@string/sign_up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintHorizontal_bias="0.206"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.825" />
+        app:layout_constraintVertical_bias="0.873" />
 
-    <Button
-        android:id="@+id/signUpBtn"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="164dp"
-        android:layout_height="60dp"
-        android:text="Sign Up"
-        app:iconPadding="@android:dimen/app_icon_size"
-        app:iconTint="@color/cardBack"
-        app:iconTintMode="multiply"
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.854"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.825" />
+        app:layout_constraintHorizontal_bias="0.431"
+        app:layout_constraintStart_toEndOf="@+id/createAcc"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        app:layout_constraintVertical_bias="0.063" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
