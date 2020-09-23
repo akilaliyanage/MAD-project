@@ -14,7 +14,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditPage"></activity>
+        <activity android:name=".Store_Details"></activity>
+        <activity android:name=".AddShop" />
+        <activity android:name=".shoppingmall_dashboard">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".EditPage" />
         <activity android:name=".userDahsboard" />
         <activity android:name=".createThree" />
         <activity android:name=".createTwo" />
@@ -28,13 +37,7 @@
 
         <activity android:name=".createOne" />
         <activity android:name=".userMain" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
