@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -39,6 +40,7 @@ public class sign_up extends AppCompatActivity {
     NewUser user;
     private FirebaseAuth mAuth;
     private final String TAG = "message";
+    private ProgressBar progressBar;
 
 
     @Override
@@ -52,8 +54,8 @@ public class sign_up extends AppCompatActivity {
     }
 
     private void updateUI(FirebaseUser currentUser) {
-        Intent intent = new Intent(sign_up.this,userMain.class);
-        startActivity(intent);
+//        Intent intent = new Intent(sign_up.this,userMain.class);
+//        startActivity(intent);
     }
 
 
@@ -67,6 +69,7 @@ public class sign_up extends AppCompatActivity {
         password = findViewById(R.id.newUserPassword);
         confirmPassword = findViewById(R.id.newUserConfirm);
         signUp = findViewById(R.id.createAcc);
+        progressBar = findViewById(R.id.progressBar);
         user = new NewUser();
         mAuth = FirebaseAuth.getInstance();
 
@@ -89,6 +92,8 @@ public class sign_up extends AppCompatActivity {
                         toast.show();
                     }else{
 
+                        progressBar.setVisibility(View.VISIBLE);
+
                         mAuth.createUserWithEmailAndPassword(finEmail,chkPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -109,7 +114,14 @@ public class sign_up extends AppCompatActivity {
                                     alertDialogBuilder.show();
                                 }
                                 if (!task.isSuccessful()) {
+                                    progressBar.setVisibility(View.INVISIBLE);
                                     Log.e(TAG, "onComplete: Failed=" + task.getException().getMessage());
+                                    MaterialAlertDialogBuilder alertDialogBuilder = new MaterialAlertDialogBuilder(sign_up.this);
+                                    alertDialogBuilder.setTitle("OOPZ!!!");
+                                    alertDialogBuilder.setMessage(task.getException().getMessage());
+
+
+                                    alertDialogBuilder.show();
                                 }
                             }
                         });

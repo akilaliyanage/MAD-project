@@ -92,7 +92,7 @@
                         android:layout_centerVertical="true"
                         android:src="@drawable/ic_search_black_24dp"/>
 
-                    <AutoCompleteTextView
+                    <EditText
                         android:layout_width="240dp"
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@+id/searchMap"

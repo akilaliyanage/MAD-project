@@ -7,11 +7,13 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,7 +52,7 @@ public class createOne extends AppCompatActivity implements OnMapReadyCallback {
     private Boolean mLocationPermissionsGranted = false;
     private GoogleMap mMap;
     private FusedLocationProviderClient mFusedLocationProviderClient;
-
+    protected static ArrayList<FetchedLocation> arrayList = new ArrayList<>();
     private Toolbar toolbar;
     private Button createTwoBtn;
     private TextView nullTxt;
@@ -59,7 +61,7 @@ public class createOne extends AppCompatActivity implements OnMapReadyCallback {
     private CoordinatorLayout coordinatorLayout;
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static final String CORSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
-
+    private EditText mSearch;
     private static final String TAG = "createOne";
     private static final int ERROR_DIALOG_REQUEST = 9001;
     private boolean locationPermissionGranted = false;
@@ -67,6 +69,8 @@ public class createOne extends AppCompatActivity implements OnMapReadyCallback {
     private GoogleMap mMAp;
     private FusedLocationProviderClient locationProviderClient;
     private static final float  DFEAUTL_ZOOM = 15f;
+    private FetchedLocation fetchedLocation;
+
 
     //widgets
 
@@ -84,7 +88,7 @@ public class createOne extends AppCompatActivity implements OnMapReadyCallback {
         createTwoBtn = findViewById(R.id.createTwoBtn);
 
         card = findViewById(R.id.card);
-        mapSearchTxt = findViewById(R.id.mapSearchTxt);
+        mSearch = findViewById(R.id.mapSearchTxt);
         coordinatorLayout = findViewById(R.id.cordnatorLay);
         CharSequence sequence = "Welcome to 'Create a Route' option 😊❤ Please turn on your device's Location";
 
@@ -101,6 +105,13 @@ public class createOne extends AppCompatActivity implements OnMapReadyCallback {
         snackbar.show();
 
         getLocationPermission();
+
+        serchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                geoLocate();
+            }
+        });
 
 
 
@@ -170,42 +181,43 @@ public class createOne extends AppCompatActivity implements OnMapReadyCallback {
     }
     private void init(){
         Log.d(TAG, "init: initilalizing");
-        mapSearchTxt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+        hideKeybard();
 
-                if(actionId == EditorInfo.IME_ACTION_SEARCH
-                || actionId == EditorInfo.IME_ACTION_DONE
-                        ||event.getAction() == event.ACTION_DOWN
-                || event.getAction() == event.KEYCODE_ENTER){
-                    //execute the method tp search
-                        geoLocate();
-                }
+    }
 
-                return false;
-            }
+    private void moveCamera(LatLng latLng, float zoom,String title) {
+        Log.d(TAG, "moveCamera: moving the camera ");
+        mMAp.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom));
 
-
-        });
+        MarkerOptions options = new MarkerOptions().position(latLng).title(title);
+        mMAp.addMarker(options);
+        hideKeybard();
     }
     
     private void geoLocate() {
         Log.d(TAG, "geoLocate: geolocate");
-        String searhString = mapSearchTxt.getText().toString();
+        String searhString = mSearch.getText().toString().trim();
         Geocoder geocoder = new Geocoder(createOne.this);
         List<Address> list = new ArrayList<>();
 
         try {
             list = geocoder.getFromLocationName(searhString,1);
-            if(list.size() > 0){
-                Address address = list.get(0);
 
-//                Toast.makeText(createOne.this,address.toString(),Toast.LENGTH_SHORT);
-                Log.d(TAG, "geoLocate: found location" + address.toString());
-                moveCamera(new LatLng(address.getLatitude(),address.getLongitude()),DFEAUTL_ZOOM,address.getAddressLine(0));
-            }
         }catch (Exception ex){
             Log.d(TAG, "geoLocate: Exception" + ex.getMessage());
+        }
+
+        if(list.size() > 0){
+            Address address = list.get(0);
+
+            fetchedLocation = new FetchedLocation(new LatLng(address.getLatitude(),address.getLongitude()),address.getAddressLine(0));
+            arrayList.add(fetchedLocation);
+
+
+            moveCamera(new LatLng(address.getLatitude(),address.getLongitude()),DFEAUTL_ZOOM,address.getAddressLine(0));
+        }else {
+            Toast toast = Toast.makeText(this,"Sorry we did not find anythin similer 😢",Toast.LENGTH_LONG);
+            toast.show();
         }
 
 
@@ -235,13 +247,7 @@ public class createOne extends AppCompatActivity implements OnMapReadyCallback {
         }
     }
 
-    private void moveCamera(LatLng latLng, float zoom,String title) {
-        Log.d(TAG, "moveCamera: moving the camera ");
-        mMAp.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom));
 
-        MarkerOptions options = new MarkerOptions().position(latLng).title(title);
-        mMAp.addMarker(options);
-    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -264,6 +270,10 @@ public class createOne extends AppCompatActivity implements OnMapReadyCallback {
                 }
             }
         }
+    }
+
+    private void hideKeybard(){
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
 
