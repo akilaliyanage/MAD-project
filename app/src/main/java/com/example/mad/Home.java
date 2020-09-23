@@ -10,8 +10,8 @@ import android.widget.ImageButton;
 
 public class Home extends AppCompatActivity {
 
-    Button userBtn,cafeBtn;
-    ImageButton userimgBtn,cafeimgBtn;
+    Button userBtn,cafeBtn, shopbtn;
+    ImageButton userimgBtn,cafeimgBtn, shopimgBtn;
 
 
     @Override
@@ -57,6 +57,23 @@ public class Home extends AppCompatActivity {
             }
         });
 
+        shopimgBtn= findViewById(R.id.shopimgbtn);
+        shopimgBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentHome = new Intent(Home.this, shoppingmall_dashboard.class);
+                startActivity(intentHome);
+            }
+        });
+
+        shopbtn = findViewById(R.id.shopbtn);
+        shopbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentHome = new Intent(Home.this, shoppingmall_dashboard.class);
+                startActivity(intentHome);
+            }
+        });
 
     }
 }
