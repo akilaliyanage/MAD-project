@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="#477971">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/create" />
+
+        <TextView
+            android:id="@+id/storename"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:text="Store Name"
+            android:textColor="#fff"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="270dp"
+            android:textColor="#ffff"
+            android:layout_marginTop="20dp"
+            android:text="Category"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="339dp"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="70dp"
+            android:text="Description"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="339dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="130dp"
+            android:text="Location"
+            android:textColor="#ffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/branch"
+            android:layout_width="339dp"
+            android:textColor="#ffff"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="180dp"
+            android:text="Branches"
+            android:textSize="18sp" />
+
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

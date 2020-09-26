@@ -1,5 +1,6 @@
 package com.example.mad;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
@@ -7,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,13 +18,16 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class Add_Store extends AppCompatActivity {
 
     Spinner spinner;
     Button btn;
-    EditText nameText, locationText, descText;
+    EditText nameText, locationText, descText, branchText;
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +43,7 @@ public class Add_Store extends AppCompatActivity {
         nameText=(EditText) findViewById(R.id.storeText);
         locationText=(EditText)findViewById(R.id.locationText);
         descText=(EditText)findViewById(R.id.descText);
-
+        branchText = (EditText) findViewById(R.id.branchText);
 
         btn = (Button) findViewById(R.id.addstore_btn);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -81,10 +86,10 @@ public class Add_Store extends AppCompatActivity {
             MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(Add_Store.this);
             builder.setTitle("Submit Details?");
             builder.setMessage("Don't worry babe.You can change your data later. wink wink");
-            builder.setIcon(R.drawable.alert1);
             builder.setPositiveButton("OKAY", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
+                    createStore();
                     Intent intent = new Intent(Add_Store.this, Store_Details.class);
                     startActivity(intent);
                     Toast.makeText(getApplicationContext(),"Succesfully Added", Toast.LENGTH_SHORT).show();
@@ -97,7 +102,6 @@ public class Add_Store extends AppCompatActivity {
                 }
             });
             builder.show();
-
         }
     }
 
@@ -110,5 +114,18 @@ public class Add_Store extends AppCompatActivity {
             selectedTextView.setText("Select Category");
             selectedTextView.setTextColor(Color.RED);
         }
+    }
+
+    public void createStore(){
+        String name = nameText.getText().toString().trim();
+        String location = locationText.getText().toString().trim();
+        String description = descText.getText().toString().trim();
+        String branch = branchText.getText().toString().trim();
+        String category = spinner.getSelectedItem().toString();
+
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Store");
+        String id = databaseReference.push().getKey();
+        Store store = new Store(id, name, category, description, location, branch);
+        databaseReference.child(id).setValue(store);
     }
 }
