@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".CafeSecond">
 
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout3"
         android:layout_width="match_parent"
@@ -31,6 +32,20 @@
 
 
     <TextView
+        android:id="@+id/textViewCafeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#1B7870"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.697"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.138"
+        tools:text="@string/hintRestaurantName" />
+
+    <TextView
         android:id="@+id/textViewName"
         android:layout_width="98dp"
         android:layout_height="31dp"
@@ -40,7 +55,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintHorizontal_bias="0.102"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.244" />
@@ -73,22 +88,21 @@
         app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.442" />
+        app:layout_constraintVertical_bias="0.431" />
 
     <EditText
         android:id="@+id/editTextMenuName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="115dp"
         android:ems="10"
         android:hint="@string/menu_name"
         android:inputType="textPostalAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.935"
+        app:layout_constraintHorizontal_bias="0.945"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topAppBar"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.228" />
 
     <EditText
         android:id="@+id/editTextMenuPrice"
@@ -99,10 +113,11 @@
         android:inputType="textPostalAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.94"
+        app:layout_constraintHorizontal_bias="0.935"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.342" />
+        app:layout_constraintVertical_bias="0.322" />
+
 
     <EditText
         android:id="@+id/editTextDiscount"
@@ -113,95 +128,74 @@
         android:inputType="textPostalAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintHorizontal_bias="0.94"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.432" />
+        app:layout_constraintVertical_bias="0.419" />
 
-    <Button
-        android:id="@+id/buttonViewMenu2"
-        android:layout_width="158dp"
-        android:layout_height="49dp"
-        android:text="@string/calButton"
-        android:textColor="#206A5D"
-        android:textSize="18sp"
-        app:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.873"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.548" />
 
     <Button
         android:id="@+id/buttonAddMenu"
-        android:layout_width="226dp"
-        android:layout_height="54dp"
+        android:layout_width="168dp"
+        android:layout_height="41dp"
         android:text="@string/add"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:backgroundTint="#206a5d"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonCalculate"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.663" />
+        app:layout_constraintHorizontal_bias="0.901"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/buttonHomeMenuList4"
-        android:layout_width="107dp"
-        android:layout_height="56dp"
-        android:text="@string/home"
-        android:textColor="#FFFFFF"
+        android:id="@+id/buttonCalculate"
+        android:layout_width="168dp"
+        android:layout_height="41dp"
+        android:text="@string/calButton"
+        android:textColor="#000000"
         android:textSize="16sp"
-        app:backgroundTint="#206a5d"
+        app:backgroundTint="#E7F1EF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintHorizontal_bias="0.144"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.118" />
+        app:layout_constraintVertical_bias="0.588" />
 
     <Button
-        android:id="@+id/buttonMyRestaurant"
-        android:layout_width="217dp"
-        android:layout_height="57dp"
+        android:id="@+id/buttonMyRest"
+        android:layout_width="275dp"
+        android:layout_height="46dp"
         android:text="@string/myRest"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:backgroundTint="#206a5d"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.917"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.87" />
-
-    <TextView
-        android:id="@+id/textViewAmount"
-        android:layout_width="149dp"
-        android:layout_height="31dp"
-        android:gravity="center"
-        android:text="@string/amount"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.148"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.544" />
+        app:layout_constraintTop_toBottomOf="@+id/listViewMenu"
+        app:layout_constraintVertical_bias="0.542" />
 
     <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="147dp"
-        android:layout_height="135dp"
+        android:id="@+id/imageViewBurger"
+        android:layout_width="95dp"
+        android:layout_height="71dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.914"
+        app:layout_constraintVertical_bias="0.117"
         app:srcCompat="@drawable/undraw_hamburger" />
+
+    <ListView
+        android:id="@+id/listViewMenu"
+        android:layout_width="354dp"
+        android:layout_height="187dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddMenu"
+        app:layout_constraintVertical_bias="0.253" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
