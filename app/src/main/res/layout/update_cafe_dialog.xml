@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/editTextUpdateResName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hintName"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editTextUpdateAddL1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hintAddress1"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editTextUpdateAddL2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hintAddress2"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editTextUpdateCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hintAddressCity"
+        android:inputType="textPersonName" />
+
+    <Spinner
+        android:id="@+id/spinnerUpdateCategory"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:entries="@array/categories" />
+
+    <EditText
+        android:id="@+id/editTextUpdateContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hintContact"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/editTextUpdateEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/hintEmail"
+        android:inputType="textEmailAddress" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="94dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonCafeUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Update"
+            app:backgroundTint="#009688" />
+
+        <Button
+            android:id="@+id/buttonCafeDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Delete"
+            app:backgroundTint="#D81818" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="122dp"
+        app:srcCompat="@drawable/undraw_walking_outside_5ueb" />
+
+</LinearLayout>

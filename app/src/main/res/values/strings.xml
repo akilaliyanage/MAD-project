@@ -68,15 +68,15 @@
     <string name="Category">CATEGORY</string>
     <string name="Contact">CONTACT</string>
     <string name="Email">EMAIL </string>
-    <string name="Save">SAVE</string>
+
     <string name="Continue">CONTINUE</string>
     <string name="hintName">Restaurant Name</string>
     <string name="hintAddress1">Line1</string>
     <string name="hintAddress2">Line2</string>
     <string name="hintAddressCity">City</string>
     <string name="hintCategory">CATEGORY</string>
-    <string name="hintContact">Contact Number</string>
-    <string name="hintEmail">Email address</string>
+    <string name="hintContact">07xxxxxxxxxx</string>
+    <string name="hintEmail">abc@gmail.com</string>
     <string-array name="categories">
         <item>Cake and Pastry</item>
         <item>Beverages</item>
@@ -124,6 +124,11 @@
     <string name="home_hotel">HOTEL</string>
     <string name="home_cafe">CAFE</string>
     <string name="home_shops">SHOPS</string>
+    <string name="viewMore">view</string>
+    <string name="calculationTitle">CALCULATION</string>
+
+
+
     <string name="sign_in">Sign In</string>
     <string name="enter_your_email_address_or_userame">Enter your email address or userame</string>
     <string name="enter_your_password">Enter your password</string>
