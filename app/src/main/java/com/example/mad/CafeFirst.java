@@ -48,6 +48,11 @@ public class CafeFirst extends AppCompatActivity {
         btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!btnSave.isPressed()){
+
+                    Toast.makeText(getApplicationContext(),"If you have fill the form Save the details first",Toast.LENGTH_SHORT).show();
+
+                }
                 Intent intent1 = new Intent(CafeFirst.this,Cafe_MyRestaurant.class);
                 startActivity(intent1);
             }
@@ -57,7 +62,12 @@ public class CafeFirst extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addCafe();
+                if(contactNo.getText().length()<10||contactNo.getText().length()>10){
+                    contactNo.setError("Please check the phone number length");
+                }else{
+                    addCafe();
+                }
+
             }
         });
     }
@@ -83,7 +93,7 @@ public class CafeFirst extends AppCompatActivity {
                 Toast.makeText(this, "Please add the city name", Toast.LENGTH_SHORT).show();
             }
             else if (TextUtils.isEmpty(emailadd)){
-                Toast.makeText(this,"Please add the city name",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Please add the email address",Toast.LENGTH_SHORT).show();
             }
             else{
                 String id = databaseCafe.push().getKey();

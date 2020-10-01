@@ -58,6 +58,10 @@
     <string name="CategoryTopic4">Western Cuisine</string>
     <string name="fab_content_desc">+</string>
     <string name="paragraph">Lorem ipsum dolor sit amet, consec</string>
+    <string name="paragraph1">A cake and pastry shop is a retail business specializing in selling cakes and shorteats</string>
+    <string name="paragraph2">A beverage shop is a retail business specializing in soft drinks,juices, and special drinks </string>
+    <string name="paragraph3">A coffee and juices is a retail business specializing in coffee and related coffee types</string>
+    <string name="paragraph4">A western cuisine is a retail business specializing in western cultural foods</string>
 
     <string name="firstpage">Add My Restaurant</string>
     <string name="page_title">Cafe &amp; Restaurant</string>

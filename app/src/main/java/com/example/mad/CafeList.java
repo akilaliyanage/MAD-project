@@ -31,6 +31,7 @@ public class CafeList extends ArrayAdapter<CafeRestaurant>{
         TextView cafeName = (TextView)listViewItem.findViewById(R.id.textViewRestName);
         TextView cafeLocation = (TextView)listViewItem.findViewById(R.id.textViewLocation);
         TextView cafeCategory = (TextView)listViewItem.findViewById(R.id.textViewCategory);
+        TextView cafeEmail = (TextView)listViewItem.findViewById(R.id.textViewEmailAddress);
 
 
         CafeRestaurant cafeRestaurant = cafeList.get(position);
@@ -38,7 +39,7 @@ public class CafeList extends ArrayAdapter<CafeRestaurant>{
         cafeName.setText(cafeRestaurant.getName());
         cafeLocation.setText(cafeRestaurant.getAddressLine1());
         cafeCategory.setText(cafeRestaurant.getCategory());
-
+        cafeEmail.setText(cafeRestaurant.getEmail());
 
         return listViewItem;
     }
