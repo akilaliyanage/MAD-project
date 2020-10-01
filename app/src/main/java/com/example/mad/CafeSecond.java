@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,6 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -184,8 +186,24 @@ public class CafeSecond extends AppCompatActivity {
         btnMenuDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                deleteMenu(cafe_id,menuId);
-                alertDialog.dismiss();
+                MaterialAlertDialogBuilder dialogDelMenu= new MaterialAlertDialogBuilder(CafeSecond.this);
+                dialogDelMenu.setTitle("Delete Confirmation");
+                dialogDelMenu.setMessage("Do You Want To Delete This Menu?");
+                dialogDelMenu.setPositiveButton("DELETE", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        deleteMenu(cafe_id,menuId);
+                        alertDialog.dismiss();
+                    }
+                });
+                dialogDelMenu.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                dialogDelMenu.show();
             }
         });
 

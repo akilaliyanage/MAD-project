@@ -5,7 +5,7 @@ public class CafeRestaurant {
     String name;
     String addressLine1;
     String addressLine2;
-    String City;
+    String city;
     String category;
     Integer contact;
     String email;
@@ -18,7 +18,7 @@ public class CafeRestaurant {
         this.name = name;
         this.addressLine1 = addressLine1;
         this.addressLine2 = addressLine2;
-        City = city;
+        this.city = city;
         this.category = category;
         this.contact = contact;
         this.email = email;
@@ -41,7 +41,7 @@ public class CafeRestaurant {
     }
 
     public String getCity() {
-        return City;
+        return city;
     }
 
     public String getCategory() {

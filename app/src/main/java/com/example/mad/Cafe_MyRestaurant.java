@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,6 +17,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -48,17 +50,17 @@ public class Cafe_MyRestaurant extends AppCompatActivity {
         addRest=(Button)findViewById(R.id.buttonAddRest4);
         //viewMenu=(Button)findViewById(R.id.buttonViewMenu);
 
-/*
+
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent7= new Intent(FourthActivity.this,MainActivity.class);
-                //startActivity(intent7);
+                Intent intent7= new Intent(Cafe_MyRestaurant.this,CafeMain.class);
+                startActivity(intent7);
 
 
             }
         });
-*/
+
 
 
         addRest.setOnClickListener(new View.OnClickListener() {
@@ -172,8 +174,25 @@ public class Cafe_MyRestaurant extends AppCompatActivity {
         buttonDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                deleteCafe(cafeId);
-                alertDialog.dismiss();
+                MaterialAlertDialogBuilder dialogDel=new MaterialAlertDialogBuilder(Cafe_MyRestaurant.this);
+
+                dialogDel.setTitle("Confirm Delete");
+                dialogDel.setMessage("Bye Bye World!");
+                dialogDel.setPositiveButton("DELETE", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        deleteCafe(cafeId);
+                        alertDialog.dismiss();
+                    }
+                });
+                dialogDel.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                dialogDel.show();
             }
         });
 

@@ -32,7 +32,7 @@ public class CafeFirst extends AppCompatActivity {
 
         resName = findViewById(R.id.editTextResName);
         addressLine1 = findViewById(R.id.editTextPostalAddress1);
-        addressLine2 = findViewById(R.id.editTextTextPostalAddress2);
+        addressLine2 = findViewById(R.id.editTextPostalAddress2);
         city=findViewById(R.id.editTextPostalAddress3);
         contactNo=findViewById(R.id.editTextPhone);
         email=findViewById(R.id.editTextTextEmailAddress);
