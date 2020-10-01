@@ -78,7 +78,7 @@ public class Cafe_MenuList extends AppCompatActivity {
                     double value1=Double.valueOf(displayPrice.getText().toString());
                     double value2=Double.valueOf(displayDiscount.getText().toString());
                     double resultValue=value1-((value1*value2)/100.0);
-                    displayAmount.setText("price : "+value1 + "       discount : " +value2+ "\n\n\n" + "Amount " +  " = "+ String.valueOf(resultValue));
+                    displayAmount.setText("price : Rs. "+value1 + "       discount : " +value2+ "\n\n\n" + "Amount " +  " = Rs. "+ String.valueOf(resultValue));
                 }
 
             }

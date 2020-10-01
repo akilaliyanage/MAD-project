@@ -72,10 +72,18 @@ public class CafeSecond extends AppCompatActivity {
         addToMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveMenu();
-                // Intent intent2= new Intent(SecondActivity.this,ThirdActivity.class);
-
-                // startActivity(intent2);
+                if(menuName.getText().toString().isEmpty()){
+                    menuName.setError("Please add a menu name");
+                }
+                else if(menuPrice.getText().length()==0){
+                    menuPrice.setError("Enter a price");
+                    //Toast.makeText(getApplicationContext(),"Add price and discount",Toast.LENGTH_SHORT).show();
+                }else if(menuDiscount.getText().toString().length()==0){
+                    menuDiscount.setError("Add a discount");
+                }
+                else{
+                    saveMenu();
+                }
 
             }
         });
@@ -83,12 +91,18 @@ public class CafeSecond extends AppCompatActivity {
         calculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(CafeSecond.this,Cafe_MenuList.class);
-                intent.putExtra("MenuName",menuName.getText().toString());
-                intent.putExtra("MenuPrice",menuPrice.getText().toString());
-                intent.putExtra("MenuDiscount",menuDiscount.getText().toString());
+                if(menuPrice.getText().toString().isEmpty()){
+                    menuPrice.setError("Enter a price");
+                }else if(menuDiscount.getText().toString().isEmpty()){
+                    menuDiscount.setError("Enter a discount");
+                }else{
+                    Intent intent=new Intent(CafeSecond.this,Cafe_MenuList.class);
+                    intent.putExtra("MenuName",menuName.getText().toString());
+                    intent.putExtra("MenuPrice",menuPrice.getText().toString());
+                    intent.putExtra("MenuDiscount",menuDiscount.getText().toString());
 
-                startActivity(intent);
+                    startActivity(intent);
+                }
             }
         });
 
