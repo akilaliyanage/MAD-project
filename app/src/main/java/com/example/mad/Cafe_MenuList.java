@@ -1,92 +1,78 @@
 package com.example.mad;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class Cafe_MenuList extends AppCompatActivity {
 
-    // ListView listViewMenu;
-    //  List<Menu> menuList;
-
+    //define variables globally
     TextView resName,displayName,displayPrice,displayDiscount,displayAmount;
     Button myRestaurant34,calculateAmount;
-
-    // DatabaseReference databaseMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cafe__menu_list);
 
+        //define variables
         myRestaurant34=(Button)findViewById(R.id.buttonAddRest4);
         calculateAmount=(Button)findViewById(R.id.buttonCalDiscount);
 
         displayName=findViewById(R.id.textViewNameDisplay);
+        //get the passed intent menu name
         String menuName= getIntent().getExtras().getString("MenuName","");
         displayName.setText(menuName);
 
         displayPrice=findViewById(R.id.textViewPriceDisplay);
+        //get the passed menu price
         String menuPrice= getIntent().getExtras().getString("MenuPrice","");
         displayPrice.setText(menuPrice);
 
         displayDiscount=findViewById(R.id.textViewDiscountDisplay);
+        //get the passed discount
         String menuDiscount= getIntent().getExtras().getString("MenuDiscount","");
         displayDiscount.setText(menuDiscount);
 
+        //text view to display the calculated amount
         displayAmount=findViewById(R.id.textViewAmountDisplay);
 
-
-
+        //text view to display "enjoy the day" sentence
         resName=findViewById(R.id.textViewResName);
 
-        //  Intent intent =getIntent();
-
-        //newly added
-        //    menuList=new ArrayList<>();
-
-        //   String id = intent.getStringExtra(FourthActivity.CAFE_ID);
-        //
-        //   resName.setText(name);
-
-        //  if (id != null) {
-        //  databaseMenu = FirebaseDatabase.getInstance().getReference("menu").child(id);
-
-        //   }
-
-        //   menuList = new ArrayList<>();
-
+        //calculate amount button
         calculateAmount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //check if the price and discount is empty
                 if(displayPrice.getText().toString().equals("")||displayDiscount.getText().toString().equals("")){
-                    Toast toast1=Toast.makeText(Cafe_MenuList.this,"PLz enter values",Toast
+                    //display a toast message
+                    Toast toast1=Toast.makeText(Cafe_MenuList.this,"PLease enter values",Toast
                             .LENGTH_SHORT);
                     toast1.show();
                 }
+                //if the above condition is false
                 else{
                     displayPrice.getText().toString();
                     displayDiscount.getText().toString();
+                    //define variables to assign the price and discount
                     double value1=Double.valueOf(displayPrice.getText().toString());
                     double value2=Double.valueOf(displayDiscount.getText().toString());
+                    //calculation for the discount
                     double resultValue=value1-((value1*value2)/100.0);
+                    //display the calculated amount in a text view
                     displayAmount.setText("price : Rs. "+value1 + "       discount : " +value2+ "\n\n\n" + "Amount " +  " = Rs. "+ String.valueOf(resultValue));
                 }
 
             }
         });
 
-
-
-
+        //My Restaurant button function redirect to the Cafe List page
         myRestaurant34.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,28 +84,4 @@ public class Cafe_MenuList extends AppCompatActivity {
 
     }
 
-/*
-    @Override
-    protected void onStart() {
-        super.onStart();
-        databaseMenu.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-               menuList.clear();
-
-                for (DataSnapshot menuSnapShot : dataSnapshot.getChildren()){
-                    Menu menu= menuSnapShot.getValue(Menu.class);
-                    menuList.add(menu); //add to the list
-                }
-
-                MenuList menuListAdapter = new MenuList(ThirdActivity.this,menuList);
-                listViewMenu.setAdapter(menuListAdapter);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }*/
 }
