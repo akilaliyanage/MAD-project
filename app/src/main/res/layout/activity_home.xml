@@ -58,7 +58,7 @@
         app:layout_constraintVertical_bias="0.278" />
 
     <ImageButton
-        android:id="@+id/imageButtonShop"
+        android:id="@+id/shopimgbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -162,7 +162,7 @@
         app:layout_constraintVertical_bias="0.835" />
 
     <Button
-        android:id="@+id/buttonShop"
+        android:id="@+id/shopbtn"
         android:layout_width="128dp"
         android:layout_height="51dp"
         android:text="@string/home_shops"
