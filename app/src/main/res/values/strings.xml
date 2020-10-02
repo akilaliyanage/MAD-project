@@ -141,4 +141,28 @@
     <string name="enter_your_email_address">Enter your email address</string>
     <string name="sign_up">Sign Up</string>
 
+
+    <string name="landingPageText1">ARE YOU A BUSINESS OWNER OR AN ENTREPRENEUR?</string>
+    <string name="landingPageText2">We provide you the best way to promote your business</string>
+    <string name="category1">FASHION</string>
+    <string name="category2">FOOTWEAR</string>
+    <string name="category3">JEWELRY</string>
+    <string name="category4">BABY CARE</string>
+    <string name="store">Store Name</string>
+    <string name="category">Category</string>
+    <string name="description">Description</string>
+    <string name="location">Location</string>
+    <string name="branches">Branches</string>
+
+    <string-array name="category_list">
+        <item>Fashion</item>
+        <item>Footwear</item>
+        <item>Jewelry</item>
+        <item>Baby Care</item>
+        <item />
+    </string-array>
+
+    <string name="heading">Add Your Store</string>
+
+
 </resources>
