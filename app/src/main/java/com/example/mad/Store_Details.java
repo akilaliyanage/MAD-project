@@ -1,14 +1,199 @@
 package com.example.mad;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+        import androidx.appcompat.app.AlertDialog;
+        import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+        import android.content.DialogInterface;
+        import android.content.Intent;
+        import android.os.Bundle;
+        import android.text.TextUtils;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.widget.AdapterView;
+        import android.widget.ArrayAdapter;
+        import android.widget.Button;
+        import android.widget.EditText;
+        import android.widget.ListView;
+        import android.widget.Toast;
+
+        import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+        import com.google.firebase.database.DataSnapshot;
+        import com.google.firebase.database.DatabaseError;
+        import com.google.firebase.database.DatabaseReference;
+        import com.google.firebase.database.FirebaseDatabase;
+        import com.google.firebase.database.ValueEventListener;
+
+        import java.util.ArrayList;
+        import java.util.List;
 
 public class Store_Details extends AppCompatActivity {
+
+    ListView listViewStores;
+    DatabaseReference databaseReference;
+    List<Store> stores;
+    Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store__details);
+
+        btn = (Button)findViewById(R.id.addmore_stores);
+        listViewStores = (ListView)findViewById(R.id.list_stores);
+        stores = new ArrayList<Store>();
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Store_Details.this, Add_Store.class);
+                startActivity(intent);
+            }
+        });
+
+        /*listViewStores.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Store store = stores.get(i);
+               updateClick(store.getStore_id(), store.getName());
+
+                return false;
+            }
+        });*/
+
+        listViewStores.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Store store = stores.get(i);
+                updateClick(store.getStore_id(), store.getName());
+            }
+        });
+    }
+
+    Intent intent = getIntent();
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Store");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                stores.clear();
+                for(DataSnapshot snapshotStore : dataSnapshot.getChildren()){
+                    Store store = snapshotStore.getValue(Store.class);
+                    stores.add(store);
+                }
+                Store_List storeList = new Store_List(Store_Details.this, stores);
+                listViewStores.setAdapter(storeList);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    public void updateClick(final String id, String name){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        final View view = inflater.inflate(R.layout.update_storedata, null);
+        builder.setView(view);
+
+        final EditText editName = (EditText) view.findViewById(R.id.s_name);
+        final EditText editCat = (EditText) view.findViewById(R.id.s_category);
+        final EditText editDesc = (EditText) view.findViewById(R.id.s_desc);
+        final EditText editLoc = (EditText) view.findViewById(R.id.s_location);
+        final EditText editBranch = (EditText ) view.findViewById(R.id.s_branch);
+        Button edit = (Button) view.findViewById(R.id.s_edit);
+        Button delete = (Button) view.findViewById(R.id.s_del);
+
+        builder.setTitle("Update Store Details " + name);
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final String name = editName.getText().toString().trim();
+                final String cat = editCat.getText().toString().trim();
+                final String desc = editDesc.getText().toString().trim();
+                final String loc = editLoc.getText().toString().trim();
+                final String branch = editBranch.getText().toString().trim();
+
+                if(TextUtils.isEmpty(name)){
+                    editName.setError("cannot be empty");
+                }
+                else if(TextUtils.isEmpty(cat)){
+                    editCat.setError("cannot be Empty");
+                }
+                else if (TextUtils.isEmpty(desc)){
+                    editDesc.setError("cannot be empty");
+                }
+                else if(TextUtils.isEmpty(loc)){
+                    editLoc.setError("cannot be empty");
+                }
+                else {
+
+                    final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(Store_Details.this);
+                    builder.setTitle("Update Details?");
+                    builder.setMessage("thank god");
+                    builder.setPositiveButton("UPDATE", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            updateStore(id, name, cat, desc, loc, branch);
+                            alertDialog.dismiss();
+                        }
+                    });
+                    builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i){}
+                    });
+                    builder.show();
+                }
+                   /* updateStore(id, name, cat, desc, loc, branch);
+                    alertDialog.dismiss();*/
+            }
+        });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(Store_Details.this);
+                builder.setTitle("Delete Store!?");
+                builder.setMessage("thank god");
+                builder.setPositiveButton("DELETE", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        deleteStore(id);
+                        alertDialog.dismiss();
+                    }
+                });
+                builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i){}
+                });
+                builder.show();
+            }
+        });
+    }
+
+    public boolean updateStore(String id, String name, String cate, String desc, String loc, String branch){
+        DatabaseReference dbref = FirebaseDatabase.getInstance().getReference().child("Store").child(id);
+
+        Store store = new Store(id, name, cate, desc, loc, branch);
+        dbref.setValue(store);
+
+        Toast.makeText(getApplicationContext(), "Successfully Updated", Toast.LENGTH_SHORT).show();
+        return true;
+    }
+
+    public void deleteStore(String id){
+        DatabaseReference dbref = FirebaseDatabase.getInstance().getReference().child("Store").child(id);
+
+        dbref.removeValue();
+        Toast.makeText(getApplicationContext(), "Successfully Deleted", Toast.LENGTH_SHORT).show();
     }
 }
