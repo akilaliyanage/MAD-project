@@ -14,8 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".Item_Details"></activity>
         <activity android:name=".Add_Store_Items" />
+
         <activity android:name=".shoppingmall_dashboard" />
         <activity android:name=".Store_Details" />
         <activity android:name=".Add_Store" />
@@ -42,7 +44,7 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCFex148NJ2tbLolEZMfRnVvDAQmZZiUro" />
+            android:value="AIzaSyCxnJdmEtFrcRKfgV9cJnu--vHYtN0GFw0" />
 
         <activity android:name=".createOne" />
         <activity android:name=".userMain" />

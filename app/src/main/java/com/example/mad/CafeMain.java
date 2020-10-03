@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -22,6 +23,8 @@ public class CafeMain extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(CafeMain.this,CafeFirst.class);
                 startActivity(intent);
+
+                Toast.makeText(CafeMain.this, "Clicked...", Toast.LENGTH_SHORT).show();
             }
         });
 

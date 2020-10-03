@@ -16,7 +16,6 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class userMain extends AppCompatActivity {
 
@@ -69,20 +68,25 @@ public class userMain extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main,menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.signOut:
-                signOut();
+            case R.id.signout:
+                signout();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    private void signOut() {
-       mAuth.signOut();
+    private void signout() {
+        mAuth.signOut();
+        if(mAuth.getCurrentUser() == null){
+            Intent intent = new Intent(userMain.this,MainActivity.class);
+            startActivity(intent);
+        }
     }
 
 

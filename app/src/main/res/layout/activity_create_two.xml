@@ -41,7 +41,7 @@
 
             <fragment xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
-                android:id="@+id/map"
+                android:id="@+id/mapOne"
                 android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
@@ -49,6 +49,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 style="@style/TextAppearance.AppCompat.Headline"
+                android:id="@+id/locationOneTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="150dp"
@@ -81,6 +82,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
+                        android:id="@+id/loc1Distance"
                         android:layout_height="wrap_content" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -98,6 +100,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
+                        android:id="@+id/loc1Time"
                         android:layout_height="wrap_content" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -123,7 +126,7 @@
                     <!-- Chips can be declared here, or added dynamically. -->
 
                     <com.google.android.material.chip.Chip
-                        android:id="@+id/bus"
+                        android:id="@+id/loc1bus"
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -131,7 +134,7 @@
                         android:checked="true"
                         android:text="@string/by_bus"/>
                     <com.google.android.material.chip.Chip
-                        android:id="@+id/train"
+                        android:id="@+id/loc1train"
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -139,7 +142,7 @@
                         android:checked="false"
                         android:text="@string/by_train"/>
                     <com.google.android.material.chip.Chip
-                        android:id="@+id/flight"
+                        android:id="@+id/loc1flight"
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -147,7 +150,7 @@
                         android:checked="true"
                         android:text="@string/by_flight"/>
                     <com.google.android.material.chip.Chip
-                        android:id="@+id/foot"
+                        android:id="@+id/loc1foot"
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -171,16 +174,37 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:id="@+id/loc1Des"
                         />
 
                 </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/name"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/comments"
+                    android:layout_marginLeft="15dp"
+
+                    android:layout_marginRight="15dp"
+                    android:hint="@string/enter_thr_route_name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:id="@+id/routename"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
 
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="match_parent"
                     android:id="@+id/dest1"
                     android:layout_marginTop="7dp"
                     android:layout_height="match_parent"
-                    android:layout_below="@+id/comments"
+                    android:layout_below="@+id/name"
                     android:text="@string/go_to_next_destination"/>
             </RelativeLayout>
 
