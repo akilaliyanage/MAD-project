@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CafeMain">
+    tools:context=".CafeMain"
+    tools:ignore="ExtraText">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout3"
@@ -70,7 +71,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topAppBar"
-        app:layout_constraintVertical_bias="0.173" />
+        app:layout_constraintVertical_bias="0.175" />
 
     <TextView
         android:id="@+id/textViewCategory1"
@@ -84,19 +85,19 @@
         app:layout_constraintHorizontal_bias="0.615"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.241" />
+        app:layout_constraintVertical_bias="0.231" />
 
     <TextView
         android:id="@+id/textViewParagraph1"
-        android:layout_width="237dp"
-        android:layout_height="23dp"
-        android:text="@string/paragraph"
+        android:layout_width="280dp"
+        android:layout_height="66dp"
+        android:text="@string/paragraph1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.798"
+        app:layout_constraintHorizontal_bias="0.877"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintVertical_bias="0.287" />
 
     <TextView
         android:id="@+id/textViewMain2"
@@ -122,19 +123,19 @@
         app:layout_constraintHorizontal_bias="0.423"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.396" />
+        app:layout_constraintVertical_bias="0.376" />
 
     <TextView
         android:id="@+id/textViewParagraph2"
-        android:layout_width="237dp"
-        android:layout_height="23dp"
-        android:text="@string/paragraph"
+        android:layout_width="284dp"
+        android:layout_height="71dp"
+        android:text="@string/paragraph2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.798"
+        app:layout_constraintHorizontal_bias="0.889"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.458" />
+        app:layout_constraintVertical_bias="0.446" />
 
     <TextView
         android:id="@+id/textViewMain3"
@@ -164,15 +165,15 @@
 
     <TextView
         android:id="@+id/textViewParagraph3"
-        android:layout_width="237dp"
-        android:layout_height="23dp"
-        android:text="@string/paragraph"
+        android:layout_width="279dp"
+        android:layout_height="66dp"
+        android:text="@string/paragraph3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.798"
+        app:layout_constraintHorizontal_bias="0.885"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.623" />
+        app:layout_constraintVertical_bias="0.618" />
 
     <TextView
         android:id="@+id/textViewMain4"
@@ -184,7 +185,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topAppBar"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintVertical_bias="0.756" />
 
     <TextView
         android:id="@+id/textViewCategory4"
@@ -202,15 +203,15 @@
 
     <TextView
         android:id="@+id/textViewParagraph4"
-        android:layout_width="237dp"
-        android:layout_height="23dp"
-        android:text="@string/paragraph"
+        android:layout_width="280dp"
+        android:layout_height="66dp"
+        android:text="@string/paragraph4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.798"
+        app:layout_constraintHorizontal_bias="0.921"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.777" />
+        app:layout_constraintVertical_bias="0.789" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -285,5 +286,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.973"
         app:srcCompat="@drawable/undraw_donut_love_kau1" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
