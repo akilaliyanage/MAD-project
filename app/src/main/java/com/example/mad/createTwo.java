@@ -37,7 +37,7 @@ public class createTwo extends AppCompatActivity implements OnMapReadyCallback {
     GoogleMap map;
     private MaterialTextView title;
     private Chip bus,train,flight,foot;
-    private TextInputEditText distance,time,description;
+    private TextInputEditText distance,time,description,routeName;
     protected static Route route = new Route();
     private ArrayList<String> methods = new ArrayList<>();
 
@@ -63,6 +63,8 @@ public class createTwo extends AppCompatActivity implements OnMapReadyCallback {
         train = findViewById(R.id.loc1train);
         flight = findViewById(R.id.loc1train);
         foot = findViewById(R.id.loc1foot);
+
+        routeName = findViewById(R.id.routename);
 
         Snackbar snackbar = Snackbar.make(createTwoSnackbar, "Please fill out the following details", Snackbar.LENGTH_INDEFINITE);
         snackbar.setAction("OKEY", new View.OnClickListener() {
@@ -100,9 +102,14 @@ public class createTwo extends AppCompatActivity implements OnMapReadyCallback {
                     }
                     route.setLoc1AddDet(description.getText().toString().trim());
                     route.setLoc1Time(time.getText().toString().trim());
-                    route.setLoc1Latlng(createOne.arrayList.get(0).getLatLng());
+                    route.setLoc1lat(createOne.arrayList.get(0).getLatLng().latitude);
+                    route.setLoc1long(createOne.arrayList.get(0).getLatLng().longitude);
+//                    route.setLoc1Latlng(createOne.arrayList.get(0).getLatLng());
                     route.setLoc1Title(createOne.arrayList.get(0).getTitle());
                     route.setLoc1TravelMethods(methods);
+
+                    String routrName = routeName.getText().toString().trim();
+                    route.setRouteName(routrName);
 
                     Intent intent = new Intent(createTwo.this,createThree.class);
                     startActivity(intent);

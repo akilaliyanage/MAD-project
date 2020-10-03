@@ -3,9 +3,11 @@ package com.example.mad;
 import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -23,17 +25,20 @@ import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textview.MaterialTextView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class createThree extends AppCompatActivity implements OnMapReadyCallback {
 
     private Toolbar toolbar;
     private ChipGroup chipGroup;
-    private MaterialButton addtag;
-    private TextInputEditText tagVal;
+    private MaterialButton addtag,dest2;
+    private TextInputEditText tagVal,loc2Time,comments;
     private CoordinatorLayout createTwoSnackbar;
     GoogleMap map;
     private TextInputEditText distance;
     private MaterialTextView title;
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +55,11 @@ public class createThree extends AppCompatActivity implements OnMapReadyCallback
         distance = findViewById(R.id.loc2Dist);
         title = findViewById(R.id.loc2Title);
         title.setText(createOne.arrayList.get(1).getTitle());
+
+        comments = findViewById(R.id.comments);
+
+        loc2Time = findViewById(R.id.loc2Time);
+        dest2 = findViewById(R.id.dest2);
 
         addtag.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +86,46 @@ public class createThree extends AppCompatActivity implements OnMapReadyCallback
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map3);
         mapFragment.getMapAsync(createThree.this);
+
+        dest2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveAndExit();
+            }
+        });
+    }
+
+    private void saveAndExit() {
+
+        if(TextUtils.isEmpty(loc2Time.getText().toString().trim())){
+            loc2Time.setError("Time is mandatory");
+        }else{
+            String time = loc2Time.getText().toString().trim();
+            createTwo.route.setLoc2Time(time);
+
+            createTwo.route.setLoc12Title(createOne.arrayList.get(1).getTitle());
+
+            String cmnts = comments.getText().toString().trim();
+            createTwo.route.setLoc2AddDet(cmnts);
+
+//            createTwo.route.setLoc12Latlng(createOne.arrayList.get(1).getLatLng());
+            createTwo.route.setLoc2lat(createOne.arrayList.get(1).getLatLng().latitude);
+            createTwo.route.setLoc2long(createOne.arrayList.get(1).getLatLng().longitude);
+            createTwo.route.setRouteId(RandomString.getAlphaNumericString(15));
+
+
+            savetoDb();
+        }
+
+
+
+    }
+
+    private void savetoDb() {
+
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("route");
+        databaseReference.child(createTwo.route.getRouteId()).setValue(createTwo.route);
+        Toast.makeText(getApplicationContext(),"success",Toast.LENGTH_LONG).show();
     }
 
     @Override
