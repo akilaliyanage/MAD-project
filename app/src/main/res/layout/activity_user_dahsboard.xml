@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/routelayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".userDahsboard">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:id="@+id/appBar"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="50px"
+        android:layout_marginTop="30px"
+        android:layout_marginRight="50px"
         android:backgroundTint="@android:color/white"
         android:elevation="@dimen/cardview_default_elevation"
         android:theme="@style/ThemeOverlay.AppCompat.Light">
@@ -25,89 +25,93 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ScrollView
+    <ListView
+        android:id="@+id/ListView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp">
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="140dp" />
 
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/myRt1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <!-- Media -->
-                <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-                    xmlns:tools="http://schemas.android.com/tools"
-                    android:id="@+id/rt1Map"
-                    android:name="com.google.android.gms.maps.SupportMapFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="194dp"
-                    tools:context=".MapsActivity" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <!-- Title, secondary and supporting text -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/my_route_one"
-                        android:textAppearance="?attr/textAppearanceHeadline6"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/starting_location"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary"
-                        />
 
 
-                </LinearLayout>
 
-                <!-- Buttons -->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:orientation="horizontal">
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="190dp"
-                        android:id="@+id/dltRoute"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/dltClrBack"
-                        android:layout_marginEnd="8dp"
-                        android:textColor="@color/dltBtnClr"
-                        android:text="@string/delete"
-                        style="?attr/borderlessButtonStyle"
-                        />
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="190dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/edit"
-                        android:text="@string/edit"
-                        android:textColor="@color/dltBtnClr"
-                        android:backgroundTint="@color/editBtnBack"
-                        style="?attr/borderlessButtonStyle"
-                        />
-                </LinearLayout>
+<!--        <com.google.android.material.card.MaterialCardView-->
+<!--            android:id="@+id/myRt1"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="8dp">-->
 
-            </LinearLayout>
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical">-->
 
-        </com.google.android.material.card.MaterialCardView>
+<!--                &lt;!&ndash; Media &ndash;&gt;-->
+<!--                <fragment xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--                    xmlns:tools="http://schemas.android.com/tools"-->
+<!--                    android:id="@+id/rt1Map"-->
+<!--                    android:name="com.google.android.gms.maps.SupportMapFragment"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="194dp"-->
+<!--                    tools:context=".MapsActivity" />-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:padding="16dp">-->
+
+<!--                    &lt;!&ndash; Title, secondary and supporting text &ndash;&gt;-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="@string/my_route_one"-->
+<!--                        android:textAppearance="?attr/textAppearanceHeadline6"-->
+<!--                        />-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="8dp"-->
+<!--                        android:text="@string/starting_location"-->
+<!--                        android:textAppearance="?attr/textAppearanceBody2"-->
+<!--                        android:textColor="?android:attr/textColorSecondary"-->
+<!--                        />-->
 
 
-    </ScrollView>
+<!--                </LinearLayout>-->
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+<!--                &lt;!&ndash; Buttons &ndash;&gt;-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="8dp"-->
+<!--                    android:orientation="horizontal">-->
+<!--                    <com.google.android.material.button.MaterialButton-->
+<!--                        android:layout_width="190dp"-->
+<!--                        android:id="@+id/dltRoute"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:backgroundTint="@color/dltClrBack"-->
+<!--                        android:layout_marginEnd="8dp"-->
+<!--                        android:textColor="@color/dltBtnClr"-->
+<!--                        android:text="@string/delete"-->
+<!--                        style="?attr/borderlessButtonStyle"-->
+<!--                        />-->
+<!--                    <com.google.android.material.button.MaterialButton-->
+<!--                        android:layout_width="190dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:id="@+id/edit"-->
+<!--                        android:text="@string/edit"-->
+<!--                        android:textColor="@color/dltBtnClr"-->
+<!--                        android:backgroundTint="@color/editBtnBack"-->
+<!--                        style="?attr/borderlessButtonStyle"-->
+<!--                        />-->
+<!--                </LinearLayout>-->
+
+<!--            </LinearLayout>-->
+
+<!--        </com.google.android.material.card.MaterialCardView>-->
+
+
+
+</RelativeLayout>

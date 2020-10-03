@@ -153,6 +153,7 @@
     </string-array>
 
     <string name="heading">Add Your Store</string>
+    <string name="enter_thr_route_name">Enter thr Route Name</string>
 
 
 </resources>

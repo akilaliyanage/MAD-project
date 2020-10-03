@@ -99,6 +99,7 @@
                     android:hint="@string/time_take_to_travel_from_location_one_to_location_two">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/loc2Time"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
