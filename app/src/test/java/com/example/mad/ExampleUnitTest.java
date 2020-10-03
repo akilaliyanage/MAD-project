@@ -1,5 +1,6 @@
 package com.example.mad;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -10,8 +11,17 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class ExampleUnitTest {
+
+    private Cafe_MenuList cafe_menuList;
+
+    @Before
+    public void setup(){
+        cafe_menuList = new Cafe_MenuList();
+    }
+
     @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+    public void amount_isCorrect(){
+        double amount =cafe_menuList.calculateAmount(100.0,5.0);
+        assertEquals(95.0,amount,0.001);
     }
 }

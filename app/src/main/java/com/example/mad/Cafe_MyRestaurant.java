@@ -186,7 +186,7 @@ public class Cafe_MyRestaurant extends AppCompatActivity {
                 MaterialAlertDialogBuilder dialogDel=new MaterialAlertDialogBuilder(Cafe_MyRestaurant.this);
 
                 dialogDel.setTitle("Confirm Delete");
-                dialogDel.setMessage("Bye Bye World!");
+                dialogDel.setMessage("Do You Want To Delete?");
                 dialogDel.setPositiveButton("DELETE", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

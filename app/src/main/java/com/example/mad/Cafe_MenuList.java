@@ -63,8 +63,8 @@ public class Cafe_MenuList extends AppCompatActivity {
                     //define variables to assign the price and discount
                     double value1=Double.valueOf(displayPrice.getText().toString());
                     double value2=Double.valueOf(displayDiscount.getText().toString());
-                    //calculation for the discount
-                    double resultValue=value1-((value1*value2)/100.0);
+                    //calculation for the discount - call the calculateAmount function and pass the parameters
+                    double resultValue=calculateAmount(value1,value2);
                     //display the calculated amount in a text view
                     displayAmount.setText("price : Rs. "+value1 + "       discount : " +value2+ "\n\n\n" + "Amount " +  " = Rs. "+ String.valueOf(resultValue));
                 }
@@ -84,4 +84,8 @@ public class Cafe_MenuList extends AppCompatActivity {
 
     }
 
+    public Double calculateAmount(Double price, Double discount) {
+        double resultValue=price-((price*discount)/100.0);
+        return resultValue;
+    }
 }
