@@ -19,7 +19,8 @@
         <menu>
 
 
-            <item android:title="@string/menuItsm3" />
+            <item android:title="@string/menuItsm3"
+                android:id="@+id/signout"/>
         </menu>
     </item>
 

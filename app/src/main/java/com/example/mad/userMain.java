@@ -69,8 +69,27 @@ public class userMain extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.signout:
+                signout();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
- 
+    private void signout() {
+        mAuth.signOut();
+        if(mAuth.getCurrentUser() == null){
+            Intent intent = new Intent(userMain.this,MainActivity.class);
+            startActivity(intent);
+        }
+    }
+
+
     public boolean isServicesOK(){
         Log.d(TAG, "isServicesOK: checking google services version");
         int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(userMain.this);

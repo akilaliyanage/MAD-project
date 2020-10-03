@@ -40,6 +40,7 @@ public class createTwo extends AppCompatActivity implements OnMapReadyCallback {
     private TextInputEditText distance,time,description,routeName;
     protected static Route route = new Route();
     private ArrayList<String> methods = new ArrayList<>();
+    private FirebaseAuth mAuth;
 
 
     @Override
@@ -49,6 +50,7 @@ public class createTwo extends AppCompatActivity implements OnMapReadyCallback {
 
         toolbar = findViewById(R.id.toolabr);
         setSupportActionBar(toolbar);
+        mAuth = FirebaseAuth.getInstance();
 
         createTwoSnackbar = findViewById(R.id.createTwoSnackbar);
         dest1 = findViewById(R.id.dest1);
@@ -125,6 +127,26 @@ public class createTwo extends AppCompatActivity implements OnMapReadyCallback {
         super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.signout:
+                signout();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void signout() {
+        mAuth.signOut();
+        if(mAuth.getCurrentUser() == null){
+            Intent intent = new Intent(createTwo.this,MainActivity.class);
+            startActivity(intent);
+        }
     }
 
 

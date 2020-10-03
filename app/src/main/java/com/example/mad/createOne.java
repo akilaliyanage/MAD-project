@@ -72,6 +72,7 @@ public class createOne extends AppCompatActivity implements OnMapReadyCallback {
     private FusedLocationProviderClient locationProviderClient;
     private static final float  DFEAUTL_ZOOM = 15f;
     private FetchedLocation fetchedLocation;
+    private FirebaseAuth mAuth;
 
 
     //widgets
@@ -92,6 +93,7 @@ public class createOne extends AppCompatActivity implements OnMapReadyCallback {
         card = findViewById(R.id.card);
         mSearch = findViewById(R.id.mapSearchTxt);
         coordinatorLayout = findViewById(R.id.cordnatorLay);
+        mAuth = FirebaseAuth.getInstance();
         CharSequence sequence = "Welcome to 'Create a Route' option 😊❤ Please turn on your device's Location";
 
         Snackbar snackbar = Snackbar.make(coordinatorLayout, sequence, Snackbar.LENGTH_INDEFINITE);
@@ -164,6 +166,26 @@ public class createOne extends AppCompatActivity implements OnMapReadyCallback {
         super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.signout:
+                signout();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void signout() {
+        mAuth.signOut();
+        if(mAuth.getCurrentUser() == null){
+            Intent intent = new Intent(createOne.this,MainActivity.class);
+            startActivity(intent);
+        }
     }
 
     @Override

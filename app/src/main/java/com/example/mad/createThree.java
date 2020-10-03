@@ -1,11 +1,13 @@
 package com.example.mad;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -25,6 +27,7 @@ import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textview.MaterialTextView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -39,6 +42,7 @@ public class createThree extends AppCompatActivity implements OnMapReadyCallback
     private TextInputEditText distance;
     private MaterialTextView title;
     DatabaseReference databaseReference;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,7 @@ public class createThree extends AppCompatActivity implements OnMapReadyCallback
         setSupportActionBar(toolbar);
 
         chipGroup = findViewById(R.id.tags);
+        mAuth = FirebaseAuth.getInstance();
         addtag = findViewById(R.id.Addtag);
         tagVal = findViewById(R.id.tagText);
         createTwoSnackbar = findViewById(R.id.createTwoSnackbar);
@@ -133,6 +138,26 @@ public class createThree extends AppCompatActivity implements OnMapReadyCallback
         super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.signout:
+                signout();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void signout() {
+        mAuth.signOut();
+        if(mAuth.getCurrentUser() == null){
+            Intent intent = new Intent(createThree.this,MainActivity.class);
+            startActivity(intent);
+        }
     }
 
     @Override

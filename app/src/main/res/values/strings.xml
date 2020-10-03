@@ -164,6 +164,7 @@
 
     <string name="heading">Add Your Store</string>
     <string name="enter_thr_route_name">Enter thr Route Name</string>
+    <string name="location_2_menu"><![CDATA[Location 2 /> </menu>]]></string>
 
 
 </resources>
