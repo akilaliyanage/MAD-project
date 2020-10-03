@@ -4,40 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fdfdfd"
     tools:context=".shoppingmall_dashboard">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="342dp"
-        android:layout_height="227dp"
-        android:backgroundTint="#206a5d"
-        app:cardCornerRadius="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.166">
-
-
-        <ImageView
-            android:id="@+id/imageView11"
-            android:layout_width="169dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="212dp"
-            app:srcCompat="@drawable/shoppingmall" />
-
-
-    </androidx.cardview.widget.CardView>
+    <include
+        android:id="@+id/include"
+        layout="@layout/navigation_bar"></include>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="344dp"
         android:layout_height="93dp"
-        android:layout_marginTop="344dp"
+        android:layout_marginTop="316dp"
         android:backgroundTint="#f6f8f8"
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintHorizontal_bias="0.582"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -64,8 +46,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="350dp"
         android:layout_height="70dp"
-        android:layout_marginTop="476dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="436dp"
+        android:layout_marginEnd="28dp"
         android:backgroundTint="#a5c3be"
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,10 +65,11 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
         android:layout_width="350dp"
         android:layout_height="70dp"
-        android:layout_marginTop="636dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="596dp"
+        android:layout_marginEnd="28dp"
         android:backgroundTint="#a5c3be"
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,8 +92,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="350dp"
         android:layout_height="70dp"
-        android:layout_marginTop="716dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="676dp"
+        android:layout_marginEnd="28dp"
         android:backgroundTint="#a5c3be"
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -129,10 +112,11 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="350dp"
         android:layout_height="70dp"
-        android:layout_marginTop="556dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="516dp"
+        android:layout_marginEnd="28dp"
         android:backgroundTint="#a5c3be"
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -148,6 +132,18 @@
             android:textColor="#206a5d"
             android:textSize="25sp" />
     </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="376dp"
+        android:layout_height="258dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.122"
+        app:srcCompat="@drawable/dashboard" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

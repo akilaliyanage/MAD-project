@@ -149,7 +149,13 @@
         <item>Footwear</item>
         <item>Jewelry</item>
         <item>Baby Care</item>
-        <item />
+    </string-array>
+
+    <string-array name="styleList">
+        <item>Women</item>
+        <item>Men</item>
+        <item>Girl</item>
+        <item>Boy</item>
     </string-array>
 
     <string name="heading">Add Your Store</string>

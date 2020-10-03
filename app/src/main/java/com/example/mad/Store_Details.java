@@ -15,7 +15,8 @@ import androidx.annotation.NonNull;
         import android.widget.Button;
         import android.widget.EditText;
         import android.widget.ListView;
-        import android.widget.Toast;
+import android.widget.Spinner;
+import android.widget.Toast;
 
         import com.google.android.material.dialog.MaterialAlertDialogBuilder;
         import com.google.firebase.database.DataSnapshot;
@@ -33,6 +34,10 @@ public class Store_Details extends AppCompatActivity {
     DatabaseReference databaseReference;
     List<Store> stores;
     Button btn;
+    Spinner spinner;
+
+    public static final String store_id = "store id";
+    public static final String store_name = "name";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +45,7 @@ public class Store_Details extends AppCompatActivity {
         setContentView(R.layout.activity_store__details);
 
         btn = (Button)findViewById(R.id.addmore_stores);
+        spinner = (Spinner) findViewById(R.id.s_category);
         listViewStores = (ListView)findViewById(R.id.list_stores);
         stores = new ArrayList<Store>();
 
@@ -96,21 +102,22 @@ public class Store_Details extends AppCompatActivity {
         });
     }
 
-    public void updateClick(final String id, String name){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    public void updateClick(final String id, final String name){
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
         LayoutInflater inflater = getLayoutInflater();
         final View view = inflater.inflate(R.layout.update_storedata, null);
         builder.setView(view);
 
         final EditText editName = (EditText) view.findViewById(R.id.s_name);
-        final EditText editCat = (EditText) view.findViewById(R.id.s_category);
+        final Spinner editCat = (Spinner) view.findViewById(R.id.s_category);
         final EditText editDesc = (EditText) view.findViewById(R.id.s_desc);
         final EditText editLoc = (EditText) view.findViewById(R.id.s_location);
         final EditText editBranch = (EditText ) view.findViewById(R.id.s_branch);
         Button edit = (Button) view.findViewById(R.id.s_edit);
         Button delete = (Button) view.findViewById(R.id.s_del);
+        Button addStoreItem = (Button) view.findViewById(R.id.s_addItem);
 
-        builder.setTitle("Update Store Details " + name);
+        builder.setTitle("Update " + name +" Store Details");
         final AlertDialog alertDialog = builder.create();
         alertDialog.show();
 
@@ -118,16 +125,13 @@ public class Store_Details extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 final String name = editName.getText().toString().trim();
-                final String cat = editCat.getText().toString().trim();
+                final String cat = editCat.getSelectedItem().toString().trim();
                 final String desc = editDesc.getText().toString().trim();
                 final String loc = editLoc.getText().toString().trim();
                 final String branch = editBranch.getText().toString().trim();
 
                 if(TextUtils.isEmpty(name)){
                     editName.setError("cannot be empty");
-                }
-                else if(TextUtils.isEmpty(cat)){
-                    editCat.setError("cannot be Empty");
                 }
                 else if (TextUtils.isEmpty(desc)){
                     editDesc.setError("cannot be empty");
@@ -136,7 +140,6 @@ public class Store_Details extends AppCompatActivity {
                     editLoc.setError("cannot be empty");
                 }
                 else {
-
                     final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(Store_Details.this);
                     builder.setTitle("Update Details?");
                     builder.setMessage("thank god");
@@ -176,6 +179,18 @@ public class Store_Details extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i){}
                 });
                 builder.show();
+            }
+        });
+
+        addStoreItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Store_Details.this, Add_Store_Items.class);
+
+                intent.putExtra(store_id, id);
+                intent.putExtra(store_name, name);
+
+                startActivity(intent);
             }
         });
     }
