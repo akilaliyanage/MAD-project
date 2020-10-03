@@ -16,7 +16,6 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class userMain extends AppCompatActivity {
 
@@ -69,23 +68,9 @@ public class userMain extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main,menu);
         return true;
     }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.signOut:
-                signOut();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    private void signOut() {
-       mAuth.signOut();
-    }
 
 
+ 
     public boolean isServicesOK(){
         Log.d(TAG, "isServicesOK: checking google services version");
         int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(userMain.this);
