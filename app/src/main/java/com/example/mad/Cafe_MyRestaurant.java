@@ -105,10 +105,11 @@ public class Cafe_MyRestaurant extends AppCompatActivity {
         });
     }
 
-    //Retrieval of data
+
     @Override
     protected void onStart() {
         super.onStart();
+        //Retrieval of data
         databaseCafe.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

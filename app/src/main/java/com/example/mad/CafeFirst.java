@@ -23,6 +23,8 @@ public class CafeFirst extends AppCompatActivity {
     Button btnContinue,btnSave;
     Spinner spinner;
 
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
     //database reference
     DatabaseReference databaseCafe;
 
@@ -75,19 +77,35 @@ public class CafeFirst extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 //check whether the contact number length is less than 10 or more than 10 digits
                 //if true then set an error when Save button is clicked
                 if(contactNo.getText().length()<10||contactNo.getText().length()>10){
                     contactNo.setError("Please check the phone number length");
                 }else{
-                    //if the condition is false save the cafe details
-                    addCafe();
+                    //check for the email address
+                    if (isEmailValid()==true){
+                        // save the cafe details
+                        addCafe();
+                    }
                 }
 
             }
         });
     }
 
+    //emal validate function
+    private boolean isEmailValid(){
+            //check whether the email is matching with the email pattern
+            if (email.getText().toString().trim().matches(emailPattern)) {
+                return true;
+            } else {
+                //if does not match then display a toast message
+                Toast.makeText(getApplicationContext(),"Invalid email address", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+
+    }
     //declaring the addCafe function
     private void addCafe(){
         String resname = resName.getText().toString().trim();

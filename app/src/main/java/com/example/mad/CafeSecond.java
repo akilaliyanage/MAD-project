@@ -46,7 +46,7 @@ public class CafeSecond extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cafe_second);
 
-        //deifine variables with ids
+        //define variables with ids
         addToMenu=(Button)findViewById(R.id.buttonAddMenu);
         myRestaurant24=(Button)findViewById(R.id.buttonMyRest);
         calculate=(Button)findViewById(R.id.buttonCalculate);
