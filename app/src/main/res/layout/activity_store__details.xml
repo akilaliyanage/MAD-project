@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".Store_Details">
 
+    <include layout="@layout/navigation_bar">
+    </include>
 
     <Button
         android:id="@+id/addmore_stores"
@@ -15,18 +17,20 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="63dp"
         android:layout_marginLeft="63dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="140dp"
         android:backgroundTint="#a5c3be"
         android:text="add more stores"
+        app:icon="@drawable/fave"
         app:cornerRadius="20dp" />
 
     <ListView
         android:id="@+id/list_stores"
-        android:layout_width="match_parent"
+        android:layout_width="380dp"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="170dp">
+        android:layout_centerInParent="true"
+        android:layout_marginTop="210dp"
+        android:layout_marginBottom="-1dp">
 
     </ListView>
 
@@ -38,11 +42,11 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
+        android:layout_marginLeft="90dp"
         android:layout_marginTop="87dp"
-        android:text="Shop details"
+        android:text="S T O R E    D E T A  I  L S"
         android:textColor="#000000"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <ImageView
