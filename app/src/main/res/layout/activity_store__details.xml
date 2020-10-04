@@ -19,9 +19,9 @@
         android:layout_marginLeft="63dp"
         android:layout_marginTop="140dp"
         android:backgroundTint="#a5c3be"
-        android:text="add more stores"
-        app:icon="@drawable/fave"
-        app:cornerRadius="20dp" />
+        android:text="@string/listView_stores"
+        app:cornerRadius="20dp"
+        app:icon="@drawable/fave" />
 
     <ListView
         android:id="@+id/list_stores"

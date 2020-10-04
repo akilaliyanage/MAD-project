@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,14 +27,13 @@ public class Add_Store_Items extends AppCompatActivity {
     CheckBox checkOffers;
     EditText itemDesc;
 
-    Button addItem, addImage, loadDetails;
-    private  static final int CHOOSE_AN_IMAGE = 1;
+    Button addItem, loadDetails;
+    ImageButton addImage;
+    public  static final int CHOOSE_AN_IMAGE = 1;
     public static final String storeID = "ID";
     TextView storeName;
-
     private Uri imageURI;
     String id;
-
     DatabaseReference databaseReference;
 
     @Override
@@ -51,10 +51,11 @@ public class Add_Store_Items extends AppCompatActivity {
 
         storeName = (TextView) findViewById(R.id.i_store_name);
         addItem = (Button) findViewById(R.id.i_addItem);
-        addImage = (Button) findViewById(R.id.i_image);
+        addImage = (ImageButton) findViewById(R.id.i_image);
 
         id = intent.getStringExtra(Store_Details.store_id);
         String name = intent.getStringExtra(Store_Details.store_name);
+
         databaseReference = FirebaseDatabase.getInstance().getReference("Item").child(id);
 
         storeName.setText(name);
@@ -80,7 +81,6 @@ public class Add_Store_Items extends AppCompatActivity {
                 goToMyItemDetails();
             }
         });
-
     }
 
     public void goToMyItemDetails(){
@@ -89,29 +89,29 @@ public class Add_Store_Items extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    //create items for the selected store
     public void createItem(){
-        //databaseReference = FirebaseDatabase.getInstance().getReference("Item").child(id);
-        String item_name = itemName.getText().toString().trim();
-        Float item_price = Float.parseFloat(itemPrice.getText().toString().trim());
-        String item_description = itemDesc.getText().toString().trim();
-        String item_style = itemStyle.getSelectedItem().toString();
-        String item_offers;
-        String itemID = databaseReference.push().getKey();
+    String item_name = itemName.getText().toString().trim();
+    Float item_price = Float.parseFloat(itemPrice.getText().toString().trim());
+    String item_description = itemDesc.getText().toString().trim();
+    String item_style = itemStyle.getSelectedItem().toString();
+    String item_offers;
+    String itemID = databaseReference.push().getKey();
 
-        if(checkOffers.isChecked()){
-            item_offers = "Available";
-        }else{
-            item_offers =  "Unavailable";
-        }
-
-        Item item = new Item(itemID,item_name, item_price, item_description, item_style, item_offers);
-        databaseReference.child(itemID).setValue(item);
-        Toast.makeText(getApplicationContext(), "Item added succesfully", Toast.LENGTH_SHORT).show();
-
-        goToMyItemDetails();
+    if(checkOffers.isChecked()){
+        item_offers = "Available";
+    }else{
+        item_offers =  "Unavailable";
     }
 
+    Item item = new Item(itemID,item_name, item_price, item_description, item_style, item_offers);
+    databaseReference.child(itemID).setValue(item);
+    Toast.makeText(getApplicationContext(), "Item added succesfully", Toast.LENGTH_SHORT).show();
+
+    goToMyItemDetails();
+}
+
+//validation for user inputs
     public void validation(){
         if(itemName.getText().toString().length()==0){
             itemName.setError("Please enter item name");
@@ -123,6 +123,7 @@ public class Add_Store_Items extends AppCompatActivity {
             createItem();
         }
     }
+
 
     public void openImageFile(){
         Intent intent = new Intent();
@@ -139,5 +140,9 @@ public class Add_Store_Items extends AppCompatActivity {
                 data != null && data.getData() != null){
             imageURI = data.getData();
         }
+    }
+
+    public void uploadImage(){
+
     }
 }

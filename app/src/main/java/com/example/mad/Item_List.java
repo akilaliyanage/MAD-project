@@ -25,6 +25,7 @@ public class Item_List extends ArrayAdapter<Item> {
 
 
 
+    //retrieve details of all the items from the database
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

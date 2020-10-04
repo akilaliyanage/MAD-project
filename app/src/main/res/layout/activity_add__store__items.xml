@@ -57,10 +57,10 @@
             android:id="@+id/i_store_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            android:layout_marginTop="5dp"
-            android:textColor="#000000"
             android:layout_marginLeft="135dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/store_Name"
+            android:textColor="#000000"
             android:textSize="20sp" />
     </com.google.android.material.card.MaterialCardView>
 
@@ -81,7 +81,7 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Item Price"
+        android:text="@string/add_item_price"
         android:textColor="#000000"
         android:textSize="18dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/i_price"
@@ -122,7 +122,7 @@
         android:id="@+id/checkOffers"
         android:layout_width="239dp"
         android:layout_height="37dp"
-        android:text="Special Offers/Discounts"
+        android:text="@string/add_item_offers"
         android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -150,7 +150,7 @@
         android:id="@+id/i_addItem"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="add store items"
+        android:text="@string/add_item"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.565"
@@ -163,7 +163,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#a5c3be"
-        android:text="go to my items"
+        android:text="@string/add_myItems"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.565"
@@ -175,7 +175,7 @@
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Category"
+        android:text="@string/add_item_cate"
         android:textColor="#000000"
         android:textSize="18dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/style_list"
@@ -187,7 +187,7 @@
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Description"
+        android:text="@string/add_item_desc"
         android:textColor="#000000"
         android:textSize="18dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/i_description"
@@ -209,7 +209,7 @@
         app:layout_constraintVertical_bias="0.29">
 
         <Button
-            android:id="@+id/i_image"
+            android:id="@+id/i_upload_image"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -221,7 +221,7 @@
             android:textStyle="bold" />
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/i_image"
             android:layout_width="82dp"
             android:layout_height="74dp"
             android:layout_marginLeft="20dp"
@@ -234,7 +234,7 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Item Name"
+        android:text="@string/add_item_name"
         android:textColor="#000000"
         android:textSize="18dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/i_name"
