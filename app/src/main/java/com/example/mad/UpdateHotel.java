@@ -1,4 +1,4 @@
-package com.example.add_hotel;
+package com.example.mad;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -105,7 +105,7 @@ public class UpdateHotel extends AppCompatActivity {
         dialog.setMessage("Updating Hotel...");
         dialog.show();
 
-        User updatedUser = new User(name, location, charge, email, phone, hotelId, image);
+        com.example.add_hotel.User updatedUser = new com.example.add_hotel.User(name, location, charge, email, phone, hotelId, image);
         reference.child(hotelId).setValue(updatedUser).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

@@ -1,8 +1,10 @@
-package com.example.add_hotel;
+package com.example.mad;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.mad.R;
 
 public class Select extends AppCompatActivity {
 

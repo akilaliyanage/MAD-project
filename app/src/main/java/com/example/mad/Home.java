@@ -10,7 +10,7 @@ import android.widget.ImageButton;
 
 public class Home extends AppCompatActivity {
 
-    Button userBtn,cafeBtn, shopbtn;
+    Button userBtn,cafeBtn, shopbtn,hotelbtn;
     ImageButton userimgBtn,cafeimgBtn, shopimgBtn;
 
 
@@ -72,6 +72,15 @@ public class Home extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intentHome = new Intent(Home.this, shoppingmall_dashboard.class);
                 startActivity(intentHome);
+            }
+        });
+
+        hotelbtn = findViewById(R.id.buttonHotel);
+        hotelbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Home.this, Add_hotel.class);
+                startActivity(intent);
             }
         });
 

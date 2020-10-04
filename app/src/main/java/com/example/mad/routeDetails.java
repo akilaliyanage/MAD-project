@@ -5,10 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseListAdapter;
+import com.firebase.ui.database.FirebaseListOptions;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -21,10 +27,12 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -35,11 +43,13 @@ public class routeDetails extends AppCompatActivity implements OnMapReadyCallbac
     GoogleMap map;
     private MarkerOptions place1,place2;
     private Polyline polyline;
-    private String routeId;
+    private String routeId,routename,loc1name,loc2name,adddet;
     private DatabaseReference reference;
     Route route = new Route();
     private double loc1lon,loc1lat,loc2lon,loc2lat;
-    private MaterialButton getdir;
+    private MaterialButton searchnear;
+    private TextView loc1,loc2,details,id;
+
 
 
     List<MarkerOptions> markerOptions = new ArrayList<>();
@@ -52,19 +62,26 @@ public class routeDetails extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_route_details);
 
+        loc1 = findViewById(R.id.routeloc1fetch);
+        loc2 = findViewById(R.id.routeloc2fetch);
+        details = findViewById(R.id.routeadddetfetch);
+        id = findViewById(R.id.routnamefetch);
+
+
 
         loc1lon = getIntent().getDoubleExtra("loc1long",0);
         loc1lat = getIntent().getDoubleExtra("loc1lat",0);
         loc2lon = getIntent().getDoubleExtra("loc2long",0);
         loc2lat = getIntent().getDoubleExtra("loc2lat",0);
+        routename = getIntent().getStringExtra("routename");
+        loc1name = getIntent().getStringExtra("loc1name");
+        loc2name= getIntent().getStringExtra("loc2name");
+        adddet = getIntent().getStringExtra("locadddet");
 
-        getdir = findViewById(R.id.getdirections);
-        getdir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+        loc1.setText(loc1name);
+        loc2.setText(loc2name);
+        details.setText(adddet);
+        id.setText(routename);
 
 
 

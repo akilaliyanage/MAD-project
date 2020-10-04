@@ -111,7 +111,7 @@ public class createTwo extends AppCompatActivity implements OnMapReadyCallback {
                     route.setLoc1TravelMethods(methods);
 
                     String routrName = routeName.getText().toString().trim();
-                    route.setRouteName(routrName);
+                    route.setRouteName(routrName.toUpperCase());
 
                     Intent intent = new Intent(createTwo.this,createThree.class);
                     startActivity(intent);

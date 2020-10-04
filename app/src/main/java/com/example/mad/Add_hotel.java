@@ -1,4 +1,4 @@
-package com.example.add_hotel;
+package com.example.mad;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.mad.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -121,7 +122,7 @@ public class Add_hotel extends AppCompatActivity {
                         @Override
                         public void onSuccess(Uri uri) {
                             String image = uri.toString();
-                            User newUser = new User(name, location, hotelCharge, email, phone, userId, image);
+                            com.example.add_hotel.User newUser = new com.example.add_hotel.User(name, location, hotelCharge, email, phone, userId, image);
                             reference.child(userId).setValue(newUser);
                             startActivity(new Intent(getApplicationContext(), AllHotels.class));
                         }

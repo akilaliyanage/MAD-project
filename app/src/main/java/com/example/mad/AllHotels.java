@@ -1,4 +1,4 @@
-package com.example.add_hotel;
+package com.example.mad;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,19 +11,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.add_hotel.User;
+import com.example.mad.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
+
 public class AllHotels extends AppCompatActivity {
 
     private RecyclerView itemRecyclerView;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference reference = database.getReference().child("Hotels");
-    private FirebaseRecyclerOptions<User> option;
-    private FirebaseRecyclerAdapter<User, HotelDisplayViewHolder> adapter;
+    private FirebaseRecyclerOptions<com.example.add_hotel.User> option;
+    private FirebaseRecyclerAdapter<com.example.add_hotel.User, HotelDisplayViewHolder> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +37,8 @@ public class AllHotels extends AppCompatActivity {
         itemRecyclerView.setHasFixedSize(true);
         itemRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        option = new FirebaseRecyclerOptions.Builder<User>().setQuery(reference, User.class).build();
-        adapter = new FirebaseRecyclerAdapter<User, HotelDisplayViewHolder>(option) {
+        option = new FirebaseRecyclerOptions.Builder<com.example.add_hotel.User>().setQuery(reference, com.example.add_hotel.User.class).build();
+        adapter = new FirebaseRecyclerAdapter<com.example.add_hotel.User, HotelDisplayViewHolder>(option) {
             @Override
             protected void onBindViewHolder(@NonNull HotelDisplayViewHolder holder, int position, @NonNull final User model) {
                 holder.hotelName.setText(model.getHotelName());

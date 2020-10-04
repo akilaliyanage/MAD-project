@@ -1,4 +1,4 @@
-package com.example.add_hotel;
+package com.example.mad;
 
 import android.view.View;
 import android.widget.ImageView;

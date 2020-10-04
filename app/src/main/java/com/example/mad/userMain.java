@@ -23,7 +23,7 @@ public class userMain extends AppCompatActivity {
     private Button createBtn;
     private static final String TAG = "createOne";
     private static final int ERROR_DIALOG_REQUEST = 9001;
-    private Button myRts;
+    private Button myRts,explore;
     private FirebaseAuth mAuth;
 
     @Override
@@ -37,6 +37,15 @@ public class userMain extends AppCompatActivity {
         createBtn = findViewById(R.id.createNewBtn);
         myRts = findViewById(R.id.myRoutesbtn);
         mAuth = FirebaseAuth.getInstance();
+        explore = findViewById(R.id.explore);
+
+        explore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(userMain.this,nearby.class);
+                startActivity(intent);
+            }
+        });
 
         createBtn.setOnClickListener(new View.OnClickListener() {
 

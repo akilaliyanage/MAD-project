@@ -84,6 +84,10 @@ public class userDahsboard extends AppCompatActivity {
                         intent.putExtra("loc1lat",route.getLoc1lat());
                         intent.putExtra("loc2long",route.getLoc2long());
                         intent.putExtra("loc2lat",route.getLoc2lat());
+                        intent.putExtra("loc1name",route.getLoc1Title());
+                        intent.putExtra("loc2name",route.getLoc12Title());
+                        intent.putExtra("locadddet",route.getLoc1AddDet());
+                        intent.putExtra("routename",route.getRouteName());
                         startActivity(intent);
                     }
                 });
