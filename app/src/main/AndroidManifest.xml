@@ -14,10 +14,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".Item_Details"></activity>
+        <activity android:name=".nearby"></activity>
+        <activity android:name=".routeDetails" />
+        <activity android:name=".AllHotels"></activity>
+        <activity android:name=".Item_Details" />
+        <activity android:name=".UpdateHotel" />
+        <activity android:name=".Add_hotel" />
         <activity android:name=".Add_Store_Items" />
-
         <activity android:name=".shoppingmall_dashboard" />
         <activity android:name=".Store_Details" />
         <activity android:name=".Add_Store" />

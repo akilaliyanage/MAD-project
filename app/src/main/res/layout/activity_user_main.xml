@@ -212,7 +212,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/explore"
+                            android:text="Explore Stores registed with us"
                             android:textAppearance="?attr/textAppearanceHeadline6"
                             tools:ignore="HardcodedText" />
 
@@ -229,11 +229,81 @@
 
                     <!-- Buttons -->
                     <Button
-                        android:id="@+id/explore"
+                        android:id="@+id/explore1"
                         android:layout_width="match_parent"
                         android:layout_height="57dp"
                         android:layout_marginBottom="0dp"
-                        android:text="@string/exploreRoutes" />
+                        android:text="Explore Stores" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:orientation="horizontal">
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/resturentcard"
+                android:layout_width="match_parent"
+                android:layout_height="288dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:elevation="@dimen/cardview_default_elevation">
+
+                <LinearLayout
+                    android:layout_width="382dp"
+                    android:layout_height="285dp"
+                    android:orientation="vertical"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="390dp">
+
+                    <!-- Media -->
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:contentDescription="content_description_media"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/rest" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- Title, secondary and supporting text -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Explore Restaurents"
+                            android:textAppearance="?attr/textAppearanceHeadline6"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Explore 100nds of restaurens from our app"
+                            android:textAppearance="?attr/textAppearanceBody2"
+                            android:textColor="?android:attr/textColorSecondary" />
+
+
+                    </LinearLayout>
+
+                    <!-- Buttons -->
+                    <Button
+                        android:id="@+id/restbtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="57dp"
+                        android:layout_marginBottom="0dp"
+                        android:text="explore resturents" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"

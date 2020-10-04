@@ -133,7 +133,6 @@
     <string name="enjoySentence">Enjoy The Day!</string>
 
 
-
     <string name="sign_in">Sign In</string>
     <string name="enter_your_email_address_or_userame">Enter your email address or userame</string>
     <string name="enter_your_password">Enter your password</string>
@@ -169,6 +168,7 @@
     <string name="heading">Add Your Store</string>
     <string name="enter_thr_route_name">Enter thr Route Name</string>
     <string name="location_2_menu"><![CDATA[Location 2 /> </menu>]]></string>
+
     <string name="updated_item_name">Item Name</string>
     <string name="update_item_price">Item Price</string>
     <string name="update_item_desc">Description</string>
@@ -206,6 +206,15 @@
     <string name="listView_stores">add more stores</string>
     <string name="mystores">my stores</string>
     <string name="my_stores">my stores</string>
+
+    <string name="shops_hotels_and_resturents_nearby">Shops, Hotels and Resturents nearby</string>
+    <string name="search_nearby">Search NearBy</string>
+    <string name="route_name">Route Name :</string>
+    <string name="additional_details">Additional Details :</string>
+    <string name="location_2_name">Location 2 name :</string>
+    <string name="location_1_name">Location 1 name :</string>
+    <string name="show_details">Show details</string>
+
 
 
 </resources>

@@ -73,11 +73,21 @@ public class userDahsboard extends AppCompatActivity {
                 dltRte = v.findViewById(R.id.dltRoute);
                 edit = v.findViewById(R.id.edit);
 
+               // Toast.makeText(userDahsboard.this,route.getRouteId(),Toast.LENGTH_LONG).show();
+
                 edit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(userDahsboard.this,EditPage.class);
+                        Intent intent = new Intent(userDahsboard.this,routeDetails.class);
                         intent.putExtra("routeId",route.getRouteId());
+                        intent.putExtra("loc1long",route.getLoc1long());
+                        intent.putExtra("loc1lat",route.getLoc1lat());
+                        intent.putExtra("loc2long",route.getLoc2long());
+                        intent.putExtra("loc2lat",route.getLoc2lat());
+                        intent.putExtra("loc1name",route.getLoc1Title());
+                        intent.putExtra("loc2name",route.getLoc12Title());
+                        intent.putExtra("locadddet",route.getLoc1AddDet());
+                        intent.putExtra("routename",route.getRouteName());
                         startActivity(intent);
                     }
                 });
