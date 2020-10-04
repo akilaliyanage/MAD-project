@@ -101,6 +101,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:id="@+id/loc1Time"
+                        android:inputType="number"
                         android:layout_height="wrap_content" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -111,6 +112,7 @@
                     android:layout_below="@+id/time"
                     android:id="@+id/methods"
                     android:layout_marginTop="10dp"
+                    android:inputType="number"
                     android:layout_marginLeft="15dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:text="@string/travelling_methods_you_know"/>

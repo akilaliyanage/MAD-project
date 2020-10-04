@@ -92,7 +92,8 @@ public class createTwo extends AppCompatActivity implements OnMapReadyCallback {
                 if(TextUtils.isEmpty(time.getText().toString().trim()) || TextUtils.isEmpty(description.getText().toString().trim())){
                     time.setError("Time is Required Field");
                     description.setError("Additional description is Required Field");
-                }else{
+                }
+                else{
                     if(bus.isChecked()){
                         methods.add("Bus");
                     }else if(train.isChecked()){
