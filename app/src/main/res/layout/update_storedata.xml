@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="34dp"
         android:layout_marginTop="63dp"
-        android:hint="Store Name" />
+        android:hint="@string/update_store" />
 
     <Spinner
         android:id="@+id/s_category"
@@ -38,7 +38,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="33dp"
         android:layout_marginTop="170dp"
-        android:hint="Description" />
+        android:hint="@string/update_store_desc" />
 
     <EditText
         android:id="@+id/s_location"
@@ -61,7 +61,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="31dp"
         android:layout_marginTop="279dp"
-        android:hint="Branches" />
+        android:hint="@string/update_store_branch" />
 
     <Button
         android:id="@+id/s_del"
@@ -72,7 +72,7 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="206dp"
         android:layout_marginTop="348dp"
-        android:text="delete" />
+        android:text="@string/delete_store" />
 
     <Button
         android:id="@+id/s_edit"

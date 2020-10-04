@@ -142,6 +142,7 @@
     <string name="sign_up">Sign Up</string>
 
 
+
     <string name="landingPageText1">ARE YOU A BUSINESS OWNER OR AN ENTREPRENEUR?</string>
     <string name="landingPageText2">We provide you the best way to promote your business</string>
     <string name="category1">FASHION</string>
@@ -153,24 +154,58 @@
     <string name="description">Description</string>
     <string name="location">Location</string>
     <string name="branches">Branches</string>
-
     <string-array name="category_list">
         <item>Fashion</item>
         <item>Footwear</item>
         <item>Jewelry</item>
         <item>Baby Care</item>
     </string-array>
-
     <string-array name="styleList">
         <item>Women</item>
         <item>Men</item>
         <item>Girl</item>
         <item>Boy</item>
     </string-array>
-
     <string name="heading">Add Your Store</string>
     <string name="enter_thr_route_name">Enter thr Route Name</string>
     <string name="location_2_menu"><![CDATA[Location 2 /> </menu>]]></string>
+    <string name="updated_item_name">Item Name</string>
+    <string name="update_item_price">Item Price</string>
+    <string name="update_item_desc">Description</string>
+    <string name="update_item_offers">Special Offers/Discounts</string>
+    <string name="update_item">edit</string>
+    <string name="delete_item">delete</string>
+    <string name="store_Name">store_name_item</string>
+    <string name="add_item_namee">itemName</string>
+    <string name="add_item_price">Item Price</string>
+    <string name="add_item_cate">Category</string>
+    <string name="add_item_desc">Description</string>
+    <string name="add_item_offers">Special Offers/Discounts</string>
+    <string name="add_item">add store items</string>
+    <string name="add_myItems">go to my items</string>
+    <string name="add_storeitems">S  T  O  R  E    I T  E  M  S</string>
+    <string name="addStore">Add store</string>
+    <string name="update_store">Store Name</string>
+    <string name="update_store_desc">Description</string>
+    <string name="update_store_loc">Location</string>
+    <string name="update_store_branch">Branches</string>
+    <string name="edit_store">edit</string>
+    <string name="delete_store">delete</string>
+    <string name="list_storeName">Store Name</string>
+    <string name="list_storeDesc">Description</string>
+    <string name="list_storeCat">Category</string>
+    <string name="list_store_loc">Location</string>
+    <string name="list_store_branch">Branches</string>
+    <string name="list_itemName">Item Name</string>
+    <string name="list_itemPrice">Price</string>
+    <string name="list_itemCat">Category</string>
+    <string name="list_itemDesc">Description</string>
+    <string name="list_itemOffers">Offers</string>
+    <string name="add_item_name">item Name</string>
+    <string name="listview_items">add more items</string>
+    <string name="listView_stores">add more stores</string>
+    <string name="mystores">my stores</string>
+    <string name="my_stores">my stores</string>
 
 
 </resources>

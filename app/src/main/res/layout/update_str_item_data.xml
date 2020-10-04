@@ -7,16 +7,12 @@
         android:id="@+id/update_i_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="103dp"
-        android:layout_marginTop="71dp"
-        android:layout_marginEnd="97dp"
+        android:layout_marginTop="6dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:hint="@string/updated_item_name"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/update_i_price"
@@ -24,10 +20,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="125dp"
+        android:layout_marginTop="60dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:inputType="number"
+        android:hint="@string/update_item_price" />
 
     <EditText
         android:id="@+id/update_i_desc"
@@ -35,41 +31,45 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="161dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:hint="@string/update_item_desc"
+        android:inputType="textPersonName" />
 
     <Spinner
-        android:id="@+id/uodate_i_spinner"
-        android:layout_width="212dp"
-        android:layout_height="49dp"
-        android:layout_alignParentStart="true"
+        android:id="@+id/update_i_cate"
+        android:layout_width="208dp"
+        android:layout_height="45dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="99dp"
-        android:layout_marginTop="183dp"
+        android:layout_marginTop="113dp"
         android:entries="@array/styleList">
 
     </Spinner>
 
     <CheckBox
         android:id="@+id/update_i_offers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:layout_width="262dp"
+        android:layout_height="36dp"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="103dp"
-        android:layout_marginTop="300dp"
-        android:text="CheckBox" />
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="217dp"
+        android:hint="@string/update_item_offers"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/upadate_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginBottom="309dp"
-        android:text="edit" />
+        android:layout_marginTop="270dp"
+        android:layout_marginLeft="50dp"
+        android:text="@string/update_item" />
+
+    <Button
+        android:id="@+id/delete_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="270dp"
+        android:layout_marginLeft="200dp"
+        android:text="@string/delete_item" />
 </RelativeLayout>

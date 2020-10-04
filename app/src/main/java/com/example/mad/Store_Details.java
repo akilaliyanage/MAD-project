@@ -15,8 +15,8 @@ import androidx.annotation.NonNull;
         import android.widget.Button;
         import android.widget.EditText;
         import android.widget.ListView;
-import android.widget.Spinner;
-import android.widget.Toast;
+        import android.widget.Spinner;
+        import android.widget.Toast;
 
         import com.google.android.material.dialog.MaterialAlertDialogBuilder;
         import com.google.firebase.database.DataSnapshot;
@@ -39,6 +39,7 @@ public class Store_Details extends AppCompatActivity {
     public static final String store_id = "store id";
     public static final String store_name = "name";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +50,7 @@ public class Store_Details extends AppCompatActivity {
         listViewStores = (ListView)findViewById(R.id.list_stores);
         stores = new ArrayList<Store>();
 
+        //directs user to add more stores
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,16 +59,7 @@ public class Store_Details extends AppCompatActivity {
             }
         });
 
-        /*listViewStores.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Store store = stores.get(i);
-               updateClick(store.getStore_id(), store.getName());
-
-                return false;
-            }
-        });*/
-
+        //fetch the selected store's id
         listViewStores.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -78,6 +71,7 @@ public class Store_Details extends AppCompatActivity {
 
     Intent intent = getIntent();
 
+    //retrieve list of stores from the database
     @Override
     protected void onStart() {
         super.onStart();
@@ -102,6 +96,7 @@ public class Store_Details extends AppCompatActivity {
         });
     }
 
+    //dialog box to handle multiple operations
     public void updateClick(final String id, final String name){
         MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
         LayoutInflater inflater = getLayoutInflater();
@@ -121,6 +116,7 @@ public class Store_Details extends AppCompatActivity {
         final AlertDialog alertDialog = builder.create();
         alertDialog.show();
 
+        //fetch data to update the store then update
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -142,7 +138,7 @@ public class Store_Details extends AppCompatActivity {
                 else {
                     final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(Store_Details.this);
                     builder.setTitle("Update Details?");
-                    builder.setMessage("thank god");
+                    builder.setMessage("Store data will be updated");
                     builder.setPositiveButton("UPDATE", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
@@ -156,17 +152,16 @@ public class Store_Details extends AppCompatActivity {
                     });
                     builder.show();
                 }
-                   /* updateStore(id, name, cat, desc, loc, branch);
-                    alertDialog.dismiss();*/
             }
         });
 
+        //fetch data to delete the store and delete
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(Store_Details.this);
                 builder.setTitle("Delete Store!?");
-                builder.setMessage("thank god");
+                builder.setMessage("This store will be deleted permanently");
                 builder.setPositiveButton("DELETE", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -182,19 +177,19 @@ public class Store_Details extends AppCompatActivity {
             }
         });
 
+        //add items to the selected store
         addStoreItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Store_Details.this, Add_Store_Items.class);
-
                 intent.putExtra(store_id, id);
                 intent.putExtra(store_name, name);
-
                 startActivity(intent);
             }
         });
     }
 
+    //update store
     public boolean updateStore(String id, String name, String cate, String desc, String loc, String branch){
         DatabaseReference dbref = FirebaseDatabase.getInstance().getReference().child("Store").child(id);
 
@@ -205,10 +200,13 @@ public class Store_Details extends AppCompatActivity {
         return true;
     }
 
+    //delete store
     public void deleteStore(String id){
         DatabaseReference dbref = FirebaseDatabase.getInstance().getReference().child("Store").child(id);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Item").child(id);
 
         dbref.removeValue();
+        databaseReference.removeValue();
         Toast.makeText(getApplicationContext(), "Successfully Deleted", Toast.LENGTH_SHORT).show();
     }
 }

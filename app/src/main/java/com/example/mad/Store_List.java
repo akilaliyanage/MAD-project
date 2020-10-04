@@ -22,8 +22,7 @@ public class Store_List extends ArrayAdapter<Store> {
 
     }
 
-
-
+    //retrieve details of all the stores from the database
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

@@ -35,7 +35,7 @@
         android:layout_marginStart="61dp"
         android:layout_marginTop="147dp"
         android:backgroundTint="#a5c3be"
-        android:text="add more items"
+        android:text="@string/listview_items"
         app:cornerRadius="20dp"
         app:icon="@drawable/fave"></Button>
 

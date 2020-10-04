@@ -10,58 +10,56 @@
         android:layout_height="match_parent">
 
 
-
         <TextView
             android:id="@+id/item_name"
-            android:textSize="20sp"
-            android:text="bubdcdc"
-            android:textColor="#477971"
-            android:layout_marginLeft="210dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp">
-        </TextView>
+            android:layout_marginLeft="210dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/list_itemName"
+            android:textColor="#477971"
+            android:textSize="20sp"></TextView>
 
         <TextView
             android:id="@+id/item_price"
-            android:hint="Item Price"
-            android:textSize="15sp"
-            android:layout_marginLeft="210dp"
-            android:text="bubdcdc"
-            android:textColor="#000000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"></TextView>
+            android:layout_marginLeft="210dp"
+            android:layout_marginTop="50dp"
+            android:hint="Item Price"
+            android:text="@string/list_itemPrice"
+            android:textColor="#000000"
+            android:textSize="15sp"></TextView>
 
         <TextView
             android:id="@+id/item_style"
             android:layout_width="wrap_content"
-            android:layout_marginLeft="210dp"
-            android:textSize="15sp"
-            android:textColor="#000000"
-            android:text="bubdcdc"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"></TextView>
+            android:layout_marginLeft="210dp"
+            android:layout_marginTop="80dp"
+            android:text="@string/list_itemCat"
+            android:textColor="#000000"
+            android:textSize="15sp"></TextView>
 
         <TextView
             android:id="@+id/item_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:text="bubdcdc"
-            android:textColor="#000000"
             android:layout_marginLeft="210dp"
-            android:layout_marginTop="110dp"></TextView>
+            android:layout_marginTop="110dp"
+            android:text="@string/list_itemDesc"
+            android:textColor="#000000"
+            android:textSize="15sp"></TextView>
 
         <TextView
             android:id="@+id/item_offers"
             android:layout_width="wrap_content"
-            android:layout_marginLeft="210dp"
-            android:textSize="15sp"
-            android:textColor="#000000"
-            android:text="bubdcdc"
             android:layout_height="wrap_content"
-            android:layout_marginTop="140dp"></TextView>
+            android:layout_marginLeft="210dp"
+            android:layout_marginTop="140dp"
+            android:text="@string/list_itemOffers"
+            android:textColor="#000000"
+            android:textSize="15sp"></TextView>
 
         <ImageView
             android:id="@+id/imageView16"

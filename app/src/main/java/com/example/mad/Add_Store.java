@@ -69,6 +69,7 @@ public class Add_Store extends AppCompatActivity {
     public void onNothingSelected(AdapterView<?> adapterView) {
     }
 
+    //validate text inputs
     public void TextValidation(){
         if(nameText.getText().toString().length() == 0){
             nameText.requestFocus();
@@ -85,7 +86,7 @@ public class Add_Store extends AppCompatActivity {
         else {
             MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(Add_Store.this);
             builder.setTitle("Submit Details?");
-            builder.setMessage("Don't worry babe.You can change your data later. wink wink");
+            builder.setMessage("Your store will be added to our system. You can modify your details later");
             builder.setPositiveButton("OKAY", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
@@ -98,11 +99,22 @@ public class Add_Store extends AppCompatActivity {
             builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    //something
                 }
             });
-            builder.show();
-        }
+            builder.show(); } }
+
+    //create new store
+    public void createStore(){
+        String name = nameText.getText().toString().trim();
+        String location = locationText.getText().toString().trim();
+        String description = descText.getText().toString().trim();
+        String branch = branchText.getText().toString().trim();
+        String category = spinner.getSelectedItem().toString();
+
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Store");
+        String id = databaseReference.push().getKey();
+        Store store = new Store(id, name, category, description, location, branch);
+        databaseReference.child(id).setValue(store);
     }
 
     private void setSpinnerError(Spinner spinner){
@@ -116,16 +128,4 @@ public class Add_Store extends AppCompatActivity {
         }
     }
 
-    public void createStore(){
-        String name = nameText.getText().toString().trim();
-        String location = locationText.getText().toString().trim();
-        String description = descText.getText().toString().trim();
-        String branch = branchText.getText().toString().trim();
-        String category = spinner.getSelectedItem().toString();
-
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Store");
-        String id = databaseReference.push().getKey();
-        Store store = new Store(id, name, category, description, location, branch);
-        databaseReference.child(id).setValue(store);
-    }
 }

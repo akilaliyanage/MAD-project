@@ -22,29 +22,29 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="10dp"
-            android:textStyle="bold"
-            android:text="Store Name"
+            android:text="@string/list_storeName"
             android:textColor="#fff"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="270dp"
-            android:textColor="#ffff"
             android:layout_marginTop="20dp"
             android:text="Category"
+            android:textColor="#ffff"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/description"
             android:layout_width="339dp"
             android:layout_height="wrap_content"
-            android:textColor="#ffff"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="70dp"
-            android:text="Description"
+            android:text="@string/list_storeDesc"
+            android:textColor="#ffff"
             android:textSize="18sp" />
 
         <TextView
@@ -53,18 +53,18 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="130dp"
-            android:text="Location"
+            android:text="@string/list_store_loc"
             android:textColor="#ffff"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/branch"
             android:layout_width="339dp"
-            android:textColor="#ffff"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="180dp"
-            android:text="Branches"
+            android:text="@string/list_store_branch"
+            android:textColor="#ffff"
             android:textSize="18sp" />
 
 
