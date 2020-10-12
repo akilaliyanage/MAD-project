@@ -3,15 +3,18 @@ package com.example.mad;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseListOptions;
@@ -31,6 +34,8 @@ public class nearby extends AppCompatActivity {
    FirebaseListAdapter adapter;
     ListView listView;
     private FirebaseAuth mAuth;
+    private Toolbar toolbar;
+    private static ArrayList<String> shopId = new ArrayList<>();
 
 
     @Override
@@ -47,10 +52,24 @@ public class nearby extends AppCompatActivity {
                 TextView storename = v.findViewById(R.id.image_name);
                 Store store = (Store) model;
                 storename.setText(store.getName());
+                shopId.add(store.getStore_id());
             }
         };
 
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(nearby.this,shopId.get(position),Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(nearby.this,shopDetails.class);
+                intent.putExtra("shopname", shopId.get(position).toString());
+                startActivity(intent);
+            }
+        });
+
+        toolbar = findViewById(R.id.toolabr);
+        setSupportActionBar(toolbar);
 
         };
     @Override

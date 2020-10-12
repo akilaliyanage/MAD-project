@@ -88,7 +88,8 @@ public class sign_up extends AppCompatActivity {
 
                if(passwordCheck(chkPassword,chkPasswordConfirm)){
                     if(TextUtils.isEmpty(email.getText().toString()) && TextUtils.isEmpty(userName.getText().toString())){
-                        Toast toast = Toast.makeText(getApplicationContext(),"One og your input fields are empty. Please fill out all the fielda and try again later 😊",Toast.LENGTH_LONG);
+                        Toast toast = Toast.makeText(getApplicationContext(),"One og your input fields are empty. Please fill out all the fielda and try again later 😊",
+                                Toast.LENGTH_LONG);
                         toast.show();
                     }else{
 

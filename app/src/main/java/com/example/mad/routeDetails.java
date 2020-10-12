@@ -1,24 +1,18 @@
 package com.example.mad;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ListView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.firebase.ui.database.FirebaseListAdapter;
-import com.firebase.ui.database.FirebaseListOptions;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
@@ -27,13 +21,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +38,8 @@ public class routeDetails extends AppCompatActivity implements OnMapReadyCallbac
     private double loc1lon,loc1lat,loc2lon,loc2lat;
     private MaterialButton searchnear;
     private TextView loc1,loc2,details,id;
+    private FirebaseAuth mAuth;
+    private Toolbar toolbar;
 
 
 
@@ -62,10 +53,11 @@ public class routeDetails extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_route_details);
 
-        loc1 = findViewById(R.id.routeloc1fetch);
-        loc2 = findViewById(R.id.routeloc2fetch);
+        loc1 = findViewById(R.id.shoplocationfetch);
+        loc2 = findViewById(R.id.shopbranchfetch);
         details = findViewById(R.id.routeadddetfetch);
-        id = findViewById(R.id.routnamefetch);
+        id = findViewById(R.id.shopnamefetch);
+        mAuth = FirebaseAuth.getInstance();
 
 
 
@@ -82,6 +74,9 @@ public class routeDetails extends AppCompatActivity implements OnMapReadyCallbac
         loc2.setText(loc2name);
         details.setText(adddet);
         id.setText(routename);
+
+        toolbar = findViewById(R.id.toolabr);
+        setSupportActionBar(toolbar);
 
 
 
@@ -145,6 +140,33 @@ public class routeDetails extends AppCompatActivity implements OnMapReadyCallbac
             polyline.remove();
 
             polyline = map.addPolyline((PolylineOptions) values[1]);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.signout:
+                signout();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void signout() {
+        mAuth.signOut();
+        if(mAuth.getCurrentUser() == null){
+            Intent intent = new Intent(routeDetails.this,MainActivity.class);
+            startActivity(intent);
         }
     }
 }

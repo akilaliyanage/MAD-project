@@ -141,7 +141,6 @@
     <string name="sign_up">Sign Up</string>
 
 
-
     <string name="landingPageText1">ARE YOU A BUSINESS OWNER OR AN ENTREPRENEUR?</string>
     <string name="landingPageText2">We provide you the best way to promote your business</string>
     <string name="category1">FASHION</string>
@@ -214,7 +213,6 @@
     <string name="location_2_name">Location 2 name :</string>
     <string name="location_1_name">Location 1 name :</string>
     <string name="show_details">Show details</string>
-
 
 
 </resources>

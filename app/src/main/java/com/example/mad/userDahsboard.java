@@ -109,16 +109,13 @@ public class userDahsboard extends AppCompatActivity {
                                 if(snapshot.hasChild(route.getRouteId())){
                                     reference = FirebaseDatabase.getInstance().getReference().child("route").child(route.getRouteId());
                                     reference.removeValue();
-
                                 }
                                 else{
                                     Toast.makeText(userDahsboard.this,"no sourse",Toast.LENGTH_LONG).show();
                                 }
                             }
-
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
-
                             }
                         });
                     }
@@ -126,7 +123,6 @@ public class userDahsboard extends AppCompatActivity {
                 alertDialogBuilder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
                     }
                 });
                 alertDialogBuilder.show();

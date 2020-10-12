@@ -3,6 +3,8 @@ package com.example.mad;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 /**
@@ -14,6 +16,7 @@ public class ExampleUnitTest {
 
     private Cafe_MenuList cafe_menuList;
     private Item_Details item_details;
+    private createOne arraylis;
 
     @Before
     public void setup(){
@@ -37,5 +40,17 @@ public class ExampleUnitTest {
         boolean success = true;
         success = item_details.checkItemCount(4);
         assertEquals(true, success);
+    }
+
+    @Before
+    public void setUp(){
+        arraylis = new createOne();
+    }
+
+    @Test
+    public  void getLength(){
+        int length = 0;
+        length = createOne.arrayList.size();
+        assertEquals(2,length);
     }
 }
